@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "UserNotification";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    string umail = User.Identity.Name;
+    var item = db.CM_User_Notification.Where(x => x.ToValue == umail && x.IsViewed==true).ToList();
+    //int uid = Convert.ToInt32(ViewBag.UId);
+    //int vid = Convert.ToInt32(ViewBag.VId);
+    //var j = db.CM_User_Notification.Where(x => x.ID == uid).FirstOrDefault();
+    //var l = db.CM_User_Notification.Where(x => x.ID == vid).FirstOrDefault();
+    //var approveitem = db.CM_User_Notification.Where(x => x.ToValue == umail && x.Content == "Order is Approve").ToList();
+    var uname = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.FirstName).FirstOrDefault();
+                                // var usertype1 = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.UserType).FirstOrDefault();
+}
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>@uname Notification 
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                            <div class="table-scrollable">
+                            </div>
+
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <thead>
+                                    <tr>
+                                        <th>#
+                                        </th>
+                                        <th>FromValue
+                                        </th>
+                                        <th>ToValue
+                                        </th>
+                                        <th>Content
+                                        </th>
+                                        <th>Status</th>
+                                        <th>View
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in item)
+                                    {
+                                        <tr>
+                                            <td>@i.ID
+                                            </td>
+                                            <td>@i.FromValue
+                                            </td>
+                                            <td>@i.ToValue
+                                            </td>
+                                            <td>@i.Content
+                                            </td>
+
+                                            <td>
+                                                @if (i.orderStatus == null)
+                                                {
+                                                    <span class="label label-sm label-success">Pending   </span>
+                                                    
+                                                }
+                                                else if (i.orderStatus != null)
+                                                {
+                                                    <span class="label label-sm label-success">@i.orderStatus   </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                                var usertype = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.UserType).FirstOrDefault();
+
+                                                if (usertype == "Requisitioner")
+                                                {
+                                                    <a id="" href="@Url.Action("RequitionerOrder", "Order", new { Id = @i.orderID })"  class="btn purple-plum" >View </a>                                                       
+                                                }
+                                                if (usertype == "Admin")
+                                                {
+                                                    <a id="" href="@Url.Action("GetUser", "UserManagement", new { Id = @i.orderID })"  class="btn purple-plum" >View </a>
+                                                }
+
+                                                if (!(usertype == "Admin" || usertype == "Requisitioner"))
+                                                {
+                                                   
+                                                    <a id="" href="@Url.Action("View", "Order", new { Id = @i.orderID })"  class="btn purple-plum" >View </a>
+                                                }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+
+        </div>
+    
+    </div>
+</body>

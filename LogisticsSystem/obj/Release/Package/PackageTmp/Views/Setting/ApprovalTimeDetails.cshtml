@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "ApprovalTimeDetails";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var item = db.tblApprovalTime.ToList();
+}
+
+<script src="~/Scripts/fancybox/source/jquery.fancybox.js"></script>
+<script src="~/Scripts/fancybox/script.js"></script>
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">Setting <small>Create ApprovalTime</small>
+            </h3>
+            <div class="page-bar">
+            </div>
+             <div class="note note-success">
+                    <p>
+                        @TempData["Msg"]
+                    </p>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-edit"></i>ApprovalTimeDetails
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"></a>
+                                <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                <a href="javascript:;" class="reload"></a>
+                                <a href="javascript:;" class="remove"></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+
+                            <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                                <div>
+                                    <a href='@Url.Action("ApprovalTime", "Setting")' class="btn  green fancybox setting fancybox.ajax">Add New</a>
+                                </div>
+                                <div class="table-scrollable">
+                                </div>
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                        <tr>
+                                            <th>#
+                                            </th>
+                                            <th>Approval Time
+                                            </th>
+
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var i in item)
+                                        {
+                                            <tr>
+                                                <td>@i.Id
+                                                </td>
+                                                <td>@i.ApprovalTime
+                                                </td>
+
+                                                <td>
+
+                                                    <a id="" href="@Url.Action("ApprovalTime", "Setting", new { id = @i.Id })"  class="btn green icon-wrench fancybox setting fancybox.ajax" ></a>
+                                                </td>
+                                                <td>
+
+                                                    <a id="" href="@Url.Action("ApprovalTime", "Setting", new { id = @i.Id, E = "D" })" class="btn red icon-trash"  onclick="return confirm('Are you sure wanat to delete ?')" ></a>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+

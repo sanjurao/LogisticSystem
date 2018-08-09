@@ -1,0 +1,116 @@
+﻿@model IdentitySample.Models.RegisterViewModel
+@using Logistic.Base.Enums
+@{
+            //ViewBag.Title = "Register";
+  
+}
+
+<h2></h2>
+<script src="../../js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+<link href="../../Content/themes/base/font-awesome.min.css" rel="stylesheet" />
+<link href="../../Content/themes/base/simple-line-icons.min.css" rel="stylesheet" />
+<link href="../../Content/themes/base/bootstrap.min.css" rel="stylesheet" />
+<link href="../../Content/themes/base/uniform.default.css" rel="stylesheet" />
+<link href="../../Content/themes/base/login.css" rel="stylesheet" />
+<link href="../../Content/themes/base/components.css" rel="stylesheet" />
+<link href="../../Content/themes/base/plugins.css" rel="stylesheet" />
+<link href="../../Content/themes/base/layout.css" rel="stylesheet" />
+<link href="../../Content/themes/base/darkblue.css" rel="stylesheet" id="style_color" />
+<link href="../../Content/themes/base/custom.css" rel="stylesheet" />
+<link href="../../Content/themes/base/about-us.css" rel="stylesheet" />
+
+<link rel="shortcut icon" href="favicon.ico" />
+<script src="../../Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+<body class="Login">
+    <div class="content">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "registerForm", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h3 class="form-title">Sign In</h3>
+            <hr />
+            <p class="hint">
+                Enter your personal details below:
+            </p>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">First Name</label>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control placeholder-no-fix", @placeholder = "First Name", name = "FirstName" })
+
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Last Name</label>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control placeholder-no-fix", @placeholder = "Last Name", name = "LastName" })
+
+            </div>
+            <div class="form-group">
+
+                <label class="control-label visible-ie8 visible-ie9">Email</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control placeholder-no-fix", @placeholder = "Email", name = "Email" })
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix", @placeholder = "Password", name = "Password" })
+
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Confirm Password</label>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control placeholder-no-fix", @placeholder = "Confirm Password", name = "ConfirmPassword" })
+
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Address</label>
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control placeholder-no-fix", @placeholder = "Address", name = "address" })
+
+            </div>
+           
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">City/Town</label>
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control placeholder-no-fix", @placeholder = "City/Town", name = "city" })
+
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Country</label>
+                @Html.DropDownListFor(m => m.Country, ViewBag.country as SelectList, "Country", new { @class = "form-control", name = "country" })
+
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">User type Dropdown</label>
+                @Html.DropDownListFor(m => m.UserType, (from UserType e in Enum.GetValues(typeof(UserType)) select new SelectListItem { Text = e.ToString() }), "User Type", new { @class = "form-control" })
+
+            </div>
+   
+            <div class="form-actions">
+
+                @Html.ActionLink("Back", "Login", "Account", null, new { @class = "btn btn-default" })
+                <input type="submit" class="btn btn-success uppercase pull-right" value="Register" />
+
+            </div>
+        }
+    </div>
+</body>
+
+<script src="../../js/respond.min.js"></script>
+<script src="../../js/excanvas.min.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/jquery-migrate.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/jquery.blockui.min.js"></script>
+<script src="../../js/jquery.cokie.min.js"></script>
+<script src="../../js/jquery.uniform.min.js"></script>
+<script src="../../js/jquery.validate.min.js"></script>
+<script src="../../js/metronic.js"></script>
+<script src="../../js/layout.js"></script>
+<script src="../../js/demo.js"></script>
+<script src="../../js/login.js"></script>
+<script src="../../js/login-soft.js"></script>

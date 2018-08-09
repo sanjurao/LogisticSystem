@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/components.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="width: 450px">
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+<script src="~/js/bootstrap-timepicker.min.js"></script>
+<script src="~/js/components-pickers.js"></script>
+<script src="~/js/metronic.js"></script>
+<script src="~/js/demo.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        Metronic.init(); // init metronic core components      
+        Demo.init(); // init demo features
+        ComponentsPickers.init();
+    });
+</script>
+</html>

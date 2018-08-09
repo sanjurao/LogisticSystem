@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://demo.phpgang.com/jquery-show-image-thumbnail-before-upload/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>How to show image thumbnail before upload with jQuery | PGPGang.com</title>
+    
+    <style type="text/css">
+    
+      img {border-width: 0}
+      * {font-family:'Lucida Grande', sans-serif;}
+    </style>
+  <script async="" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/analytics.js"></script><script src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript" async="" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/rtbspub"></script><script async="" type="text/javascript" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/ca-pub-6883622550208397.js"></script><script type="text/javascript">var ezouid = "1663310038";</script><!--<base href="http://demo.phpgang.com/jquery-show-image-thumbnail-before-upload/">--><base href="."></head>
+  <body><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mN_oxsync" style="display: none !important;"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mN_cksync_0" style="display: none !important;"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mN_beacons" style="display: none !important;"></iframe>
+    <div>
+      <h2>How to show image thumbnail before upload with jQuery example.&nbsp;&nbsp;&nbsp;=&gt; <a href="http://www.phpgang.com/">Home</a> | <a href="http://demo.phpgang.com/">More Demos</a></h2>
+
+
+      
+        <div style="margin-top:8px">
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/follow_button.1354093195.html" class="twitter-follow-button" style="width: 256px; height: 20px;" title="Twitter Follow Button" data-twttr-rendered="true"></iframe>
+</div>
+        <div style="float:left;width:90px">
+<a href="http://feeds2.feedburner.com/PHPGang" title="PHPGang feed"><img alt="feed" height="26" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/PHPGang" style="border:0;margin-right:10px;margin-top:6px" width="88"></a>
+</div>
+<div style="float:left;width:120px;margin-left:20px;margin-top:2px">
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/subscribe.html" style="border:none; overflow:hidden; width:160px;height:25px;margin-top:5px"></iframe>
+</div>
+<!-- Place this tag where you want the badge to render. -->
+      
+      <div>
+<script async="" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/adsbygoogle.js"></script>
+<!-- PHPGang top demo all pages -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6883622550208397" data-ad-slot="3370270908" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+        <br><br>
+      <hr>
+       
+  <p>
+               <script type="text/javascript" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/jquery-1.8.0.min.js"></script>
+<style>
+#imagePreview {
+    width: 180px;
+    height: 180px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    $("#uploadFile").on("change", function()
+    {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+        
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+            
+            reader.onloadend = function(){ // set image data as background of div
+                $("#imagePreview").css("background-image", "url("+this.result+")");
+            }
+        }
+    });
+});
+</script></p><div id="imagePreview"></div>
+            <input id="uploadFile" type="file" name="image" class="img">        <p></p>            
+<div style="margin-left: auto;margin-right: auto;text-align: center;">
+<br><hr><script id="mNCC" language="javascript">  medianet_width='300';  medianet_height= '600';  medianet_crid='973466122';  </script>  <script id="mNSC" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/nmedianet.js" language="javascript"></script><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="600" width="300" id="_mN_gpt_973466122"></iframe><script language="javascript" type="text/javascript" id="_mN_dy_973466122" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/fcmdynet.js"></script><iframe marginwidth="0" marginheight="0" scrolling="NO" frameborder="0" height="600" width="300" id="_mN_main_973466122_0" style="display:none;"></iframe> <br><!-- START YieldSelect.com Private Marketplace Tag For PhpGang.com -->
+	    <!-- Size: 728x90 -->
+	    <script src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/728x90.js" type="text/javascript"></script><div style="text-align: center; margin: 0px auto; width:728px; height:90px; position:relative;"><style type="text/css"> .yieldLink{ position:absolute; bottom:0px; left:0px; width:14px; height:14px; min-width:14px; max-width:14px; min-height:14px; max-height:14px; color:#FFF; background-color:#4D88D2; text-align:center; font:11px Arial, Tahoma, sans-serif; font-weight:bold; opacity:0.6; filter:alpha(opacity=60); } DIV.yieldLink:hover { cursor:pointer; color:#99ffff; opacity:.9; filter:alpha(opacity=90); } .yieldLink span a{ font-size: 11px; font-family: Arial; font-style: normal; font-weight: 600; line-height: 15px; letter-spacing: normal; background: none; } </style><script src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/gpt.js"></script><script id="gpt-impl-0.872668580384925" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/pubads_impl_73.js"></script><iframe src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/container.html" style="visibility: hidden; display: none;"></iframe><div id="div-gpt-ad-04657624221513-0" style="width:728px; height:90px;">
+<script type="text/javascript">
+googletag.defineSlot('/21533241/PhpGang.com-(ID:6417)-ROS-728x90', [728, 90], 'div-gpt-ad-04657624221513-'+window.randomyNum).addService(googletag.pubads()); googletag.pubads().enableSyncRendering(); googletag.enableServices(); if(resultServing || realURL == 0){ googletag.pubads().set('page_url', 'phpgang.com'); } googletag.display('div-gpt-ad-04657624221513-'+window.randomyNum);
+</script><script type="text/javascript" src="./How to show image thumbnail before upload with jQuery _ PGPGang.com_files/ads"></script><div id="div-gpt-ad-04657624221513-0_ad_container">
+<ins style="width: 728px; height: 90px; display: inline-table; position: relative; border: 0px; vertical-align: bottom;"><ins style="width: 728px; height: 90px; display: block; position: relative; border: 0px;"><iframe id="google_ads_iframe_/21533241/PhpGang.com-(ID:6417)-ROS-728x90_0" name="google_ads_iframe_/21533241/PhpGang.com-(ID:6417)-ROS-728x90_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; position: absolute; top: 0px; left: 0px;"></iframe></ins></ins></div>
+<script>googletag.impl.pubads.createDomIframe("div-gpt-ad-04657624221513-0_ad_container" ,"/21533241/PhpGang.com-(ID:6417)-ROS-728x90_0",false,false);</script>
+</div>
+<div class="yieldLink"><span><a style="color: white; text-decoration: none" href="http://www.yieldselect.com/index/ref/1/" target="_blank">?</a></span></div></div>
+	    <!-- END YieldSelect.com Private Marketplace Tag For PhpGang.com --></div>
+  
+
+</div></body></html>

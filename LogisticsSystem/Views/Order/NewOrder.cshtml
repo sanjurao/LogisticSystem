@@ -1,0 +1,563 @@
+﻿@model LogisticSystem.Models.NewPOOrder
+@using Logistic.Base.Enums;
+@{
+    ViewBag.Title = "PurchaseOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var dditem = db.tblItem.ToList();
+
+}
+<script src="~/Scripts/AutoCompleteDropDownList.js"></script>
+<link href="~/css/jquery-ui.css" rel="stylesheet" />
+<script src="~/js/jquery-1.11.3.min.js"></script>
+<script src="~/Chosen/chosen.jquery.js"></script>
+<link href="~/Chosen/chosen.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+
+        $('#btnSubmit').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var EndUser = $('#EndUser').val();
+            var Consolidater = $('#Consolidater').val();
+            var Supplier = $('#Supplier').val();
+            var Discription = $('#Discription').val();
+            var MOT = $('#MOT').val();
+            var theam = $('#theam').val();
+            var KPI = $('#KPI').val();
+            var needbydate = $('#needbydate').val();
+            var Chargecode = $('#Chargecode').val();
+            var Status = $('#Status').val();
+            var MSDPo = $('#MSDPo').val();
+            var LeadTime = $('#LeadTime').val();
+            var LeadTime = $('#DueDate').val();
+            var txtproductTemp = [];
+            $('.Product').each(function () {
+                txtproductTemp.push($(this).val());
+            });
+            var txtproduct = { productValues: txtproductTemp };
+
+            var txtQuntOrdered = [];
+            $('.QuntOrdered').each(function () {
+                txtQuntOrdered.push($(this).val());
+            });
+            var txtUnitValue = [];
+            $('.UnitValue').each(function () {
+                txtUnitValue.push($(this).val());
+            });
+            var txtTotalQuantity = [];
+            $('.totalquantity').each(function () {
+                txtTotalQuantity.push($(this).val());
+            });
+            var file = $('#file').val();
+            var ORAPoNumber = $('#ORAPoNumber').val();
+
+            var inputVal = new Array(EndUser, Consolidater, Supplier, Discription, MOT, theam, KPI, needbydate, Chargecode, Status, MSDPo, LeadTime, DueDate, txtproduct, txtQuntOrdered, txtUnitValue, file, txtTotalQuantity, ORAPoNumber);
+
+            var inputMessage = new Array("EndUser", "Consolidater", "Supplier", "Discription", "MOT", "theam", "KPI", "needbydate", "Chargecode", "Status", "MSDPo", "LeadTime", "DueDate", "Product", "Qunt Ordered", "Unit Value", "file", "TotalQuantity", "ORA PO No.");
+
+            $('.error').hide();
+
+            //if ($('#ORAPoNumberError:visible').length == 0)
+            //{
+            //    e.preventDefault()
+            //    return false;
+            //}
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#EndUser').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[0] + '</span>');
+                return false;
+            }
+
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#Consolidater').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[1] + '</span>');
+                return false;
+            }
+            if (inputVal[2] == "") {
+                e.preventDefault()
+                $('#Supplier').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[2] + '</span>');
+                return false;
+            }
+
+            if (inputVal[3] == "") {
+                e.preventDefault()
+                $('#Discription').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[3] + '</span>');
+                return false;
+            }
+            if (inputVal[4] == "") {
+                e.preventDefault()
+                $('#MOT').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[4] + '</span>');
+                return false;
+            }
+
+            if (inputVal[5] == "") {
+                e.preventDefault()
+                $('#theam').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[5] + '</span>');
+                return false;
+            }
+            if (inputVal[6] == "") {
+                e.preventDefault()
+                $('#KPI').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[6] + '</span>');
+                return false;
+            }
+
+            if (inputVal[7] == "") {
+                e.preventDefault()
+                $('#needbydate').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[7] + '</span>');
+                return false;
+            }
+            if (inputVal[8] == "") {
+                e.preventDefault()
+                $('#Chargecode').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[8] + '</span>');
+                return false;
+            }
+
+            if (inputVal[9] == "") {
+                e.preventDefault()
+                $('#Status').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[9] + '</span>');
+                return false;
+            }
+            if (inputVal[10] == "") {
+                e.preventDefault()
+                $('#MSDPo').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[10] + '</span>');
+                return false;
+            }
+
+            if (inputVal[11] == "") {
+                e.preventDefault()
+                $('#LeadTime').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[11] + '</span>');
+                return false;
+            }
+            if (inputVal[12] == "") {
+                e.preventDefault()
+                $('#DueDate').after('<span style="color:red" class="error"> Please Enter ' + inputMessage[12] + '</span>');
+                return false;
+            }
+            if (inputVal[13] == "") {
+                e.preventDefault()
+                $('.Product').after('<span style="color:red" class="error">' + inputMessage[13] + '</span>');
+                return false;
+            }
+            if (inputVal[14] == "") {
+                e.preventDefault()
+                $('.QuntOrdered').after('<span style="color:red" class="error">' + inputMessage[14] + '</span>');
+                return false;
+            }
+
+            if (inputVal[15] == "") {
+                e.preventDefault()
+                $('.UnitValue').after('<span style="color:red" class="error">' + inputMessage[15] + '</span>');
+                return false;
+            }
+            if (inputVal[16] == "") {
+                e.preventDefault()
+                $('#file').after('<span style="color:red" class="error">' + inputMessage[16] + '</span>');
+                return false;
+            }
+            if (inputVal[17] == "") {
+                e.preventDefault()
+                $('.totalquantity').after('<span style="color:red" class="error">' + inputMessage[17] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+            //$('#ORAPoNumberError').
+            @*if (inputVal[18] != "") {
+                    $.getJSON('@Url.Action("CheckORAPoNumberExisit", "Order")', ORAPoNumber, function (data) {
+                        if (data > 0) {
+                            e.preventDefault()
+                            $('#ORAPoNumber').after('<span style="color:red" class="error">' + inputMessage[18] + '</span>');
+                            return false;
+                        }
+                    });
+                    @*$.ajax({
+                        type: "GET",
+                        cache: "false",
+                        data: { ORAPoNumber: ORAPoNumber },
+                        url: '@Url.Action("CheckORAPoNumberExisit", "Order")',
+                        success: function (data) {
+
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            $('#ORAPoNumber').after('<span style="color:red" class="error">' + inputMessage[18] + '</span>');
+                            return false;
+                        }
+
+                    });
+                }*@
+
+        }
+        //$(".js-example-basic-single").select2();
+
+        $('#ORAPoNumber').keyup(function (e) {
+            //perform ajax call...
+            $.ajax({
+                type: "GET",
+                cache: "false",
+                data: { ORAPoNumber: $(this).val() },
+                url: '@Url.Action("CheckORAPoNumberExisit", "Order")',
+                success: function (data) {
+                    if (data > 0) {                        
+                        //$('#ORAPoNumberDiv').append('<div style="color:red" id="errorOnORApNum" class="error">ORA PO No. :' + $(this).val() + 'already exist. Please enter unique number</div>');
+                        //return false;
+                        $('#ORAPoNumberError').css("display", "inline");
+                    }
+                    else {
+                        $('#ORAPoNumberError').css("display", "none");
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Error while fetching Orap Number to check unique");
+                }
+
+            });
+
+        });
+
+        $('select').select2();
+
+        $('#calloff').click(function () {
+            if ($(this).is(":checked")) {
+                $('.CallOffDate').removeAttr("disabled");
+            } else {
+                $('.CallOffDate').attr("disabled", "disabled");
+            }
+        });
+        var sum = 0;
+        $(".QuntOrdered, .UnitValue").live("change", function () {
+            var item_quantity = parseInt($(this).parents("tr").find(".QuntOrdered").val());
+            var unit_price = parseFloat($(this).parents("tr").find(".UnitValue").val());
+            var total_value = (unit_price * item_quantity).toFixed(2);
+            console.info(item_quantity, unit_price, total_value);
+            if (!isNaN(total_value))
+                $(this).parents("tr").find(".TotalValue").val(total_value);
+            $(this).parents("tr").find(".TotalValue").each(function () {
+                if (!isNaN(this.value) && this.value.length != 0) {
+                    sum += parseFloat(this.value);
+                }
+            });
+            $("#sum").html(sum.toFixed(2));
+
+        });
+        $(this).parents("tr").find(".TotalValue").each(function () {
+
+        });
+        $("#NewOrderItemDetails").on('click', '.remRow', function () {
+
+            $(this).closest("tr").remove();
+
+            $('.Product').each(function (index) {
+                $(this).attr('name', 'txtproduct[' + index + ']');
+            });
+            $('.QuntOrdered').each(function (index) {
+                $(this).attr('name', 'txtQuntOrdered[' + index + ']');
+            });
+            $('.QuntShipped').each(function (index) {
+                $(this).attr('name', 'txtQuntShipped[' + index + ']');
+            });
+            $('.QuntLeft').each(function (index) {
+                $(this).attr('name', 'txtQuntLeft[' + index + ']');
+            });
+            $('.UnitValue').each(function (index) {
+                $(this).attr('name', 'txtUnitValue[' + index + ']');
+            });
+            $('.AdditionalCost').each(function (index) {
+                $(this).attr('name', 'txtAdditionalCost[' + index + ']');
+            });
+            $('.datePickerClass').each(function (index) {
+                $(this).attr('name', 'CallOffDate[' + index + ']');
+            });
+            $('.TotalValue').each(function (index) {
+                $(this).attr('name', 'txtTotalValue[' + index + ']');
+            });
+        });
+
+        $('#Supplier').change(function () {
+            var className = $("#Supplier> option:selected").text();
+            var parem = { Id: $("#Supplier> option:selected").attr('value') };
+            $.getJSON('@Url.Action("SelectLeadTime", "Order")', parem, function (data) {
+                $('#LeadTime').val(data);
+            });
+        });
+        $('#MOT').change(function () {
+            var className = $("#MOT> option:selected").text();
+            var parem = { Id: $("#MOT> option:selected").attr('value') };
+
+            $.getJSON('@Url.Action("SelectDuration", "Order")', parem, function (data) {
+                var date = new Date();
+                var leadtime = Math.round($('#LeadTime').val());
+                var Approvaltime = Math.round($('#ApprovalTime').val());
+                date.setDate(date.getDate() + (leadtime + Approvaltime + data));
+                var dd = date.getDate();
+                var mm = date.getMonth() + 1;
+                var yy = date.getUTCFullYear();
+                Duedate = dd + "/" + mm + "/" + yy;
+                $('#DueDate').val(Duedate);
+
+            });
+
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    var ctr = 1;
+    function addRow() {
+
+        var ctr = $('#NewOrderItemDetails tr').length - 2;
+        var slNo = ctr;
+        //ctr++;
+        var txtproduct = "txtproduct" + ctr;
+        var txttotalquntity = "txttotalquntity" + ctr;
+        var txtQuntOrdered = "txtQuntOrdered" + ctr;
+        var txtQuntShipped = "txtQuntShipped" + ctr;
+        var txtQuntLeft = "txtQuntLeft" + ctr;
+        var txtUnitValue = "txtUnitValue" + ctr;
+        var txtAdditionalCost = "txtAdditionalCost" + ctr;
+        var txtTotalValue = "txtTotalValue" + ctr;
+        var txtcalloffdate = "CallOffDate" + ctr;
+        var hiddenId = "hiddenId" + ctr;
+        var newTr = '<tr><td>' + ++slNo + '</td><td><input type="text" id="' + txtproduct + '"  class="Product"  name=NewOrderItemDetails[' + ctr + '].txtproduct /></td><td><input type="text" size="10" id=" ' + txttotalquntity + '" name="NewOrderItemDetails[' + ctr + '].txtTotalQuantity" class="totalquantity" /><td><input type="text" size="10" id=" ' + txtQuntOrdered + '" name="NewOrderItemDetails[' + ctr + '].txtQuntOrdered" class="QuntOrdered" name="NewOrderItemDetails[' + ctr + '].txtQuntOrdered" /></td><td><input type="text" size="10" id="' + txtQuntShipped + '" disabled name="NewOrderItemDetails[' + ctr + '].txtQuntShipped" class="QuntShipped"/></td><td><input type="text" size="10" id=" ' + txtQuntLeft + '" name="txtQuntLeft[' + ctr + ']" class="QuntLeft" disabled  /></td><td><input type="text" size="10" id="' + txtUnitValue + '" name="NewOrderItemDetails[' + ctr + '].txtUnitValue" class="UnitValue"/></td><td><input type="text" size="10" id="' + txtAdditionalCost + '" name="NewOrderItemDetails[' + ctr + '].txtAdditionalCost" class="AdditionalCost" disabled /></td><td><input type="text" id=' + txtcalloffdate + ' size="10" name="NewOrderItemDetails[' + ctr + '].CallOffDate" class="datePickerClass"/></td><td><input type="text" size="10" id="' + txtTotalValue + '" name="NewOrderItemDetails[' + ctr + '].txtTotalValue" class="TotalValue"/></td><td><input type="button" id="btnRemove ' + ctr + '" value="Remove" class="remRow" name="btnRemove" /></td><td><input type="hidden"  id=" ' + hiddenId + '" name="NewOrderItemDetails[' + ctr + '].Id" /></td></tr>';
+        $('#NewOrderItemDetails').append(newTr);
+        $('.datePickerClass').datepicker();
+
+    }
+</script>
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">
+                Orders <small>orders listing</small>
+            </h3>
+            @using (Html.BeginForm("NewOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div>
+                    <div id="ORAPoNumberDiv">
+                        <label>ORA PO No.</label>
+                        @Html.TextBoxFor(m => m.NewOrderDetail.ORAPoNumber, null, new { @class = "form-control", id = "ORAPoNumber", placeholder = "Unique ORA PO Number" })
+                    </div>
+                    <div>
+                        <label id="ORAPoNumberError" class="error" style="color:red;display:none" >This is not unique value</label>
+                    </div>
+                    <div>
+                        <label>MSD PO No.</label>
+                        @Html.TextBoxFor(m => m.NewOrderDetail.MSD_PO, null, new { @class = "form-control" })
+                    </div>
+
+                    <div>
+                        <label>End User:</label>
+                        @if (ViewBag.EndUser != null)
+                        {
+                            @Html.DropDownListFor(m => m.NewOrderDetail.EndUserId, ViewBag.EndUser as IEnumerable<SelectListItem>
+                    , "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "EndUser" })
+
+                        }
+                    </div>
+                    <div>
+                        <label>Originator:</label>
+                        @if (ViewBag.Originator != null)
+                        {
+                            @Html.DropDownListFor(m => m.NewOrderDetail.OrgUID, ViewBag.Originator as IEnumerable<SelectListItem>
+                    , "--Select--", new { @class = "js-example-basic-single", id = "Originator", style = "width: 100%;" })
+
+                        }
+                    </div>
+                    <div>
+                        <label>consolidator:</label>
+                        @if (ViewBag.consol != null)
+                        {
+                            @Html.DropDownListFor(m => m.NewOrderDetail.Consolidator, ViewBag.consol as IEnumerable<SelectListItem>
+                    , "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "Consolidater" })
+
+                        }
+                    </div>
+                    <div>
+                        <label>Supplier:</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.SupplierID, (new SelectList(db.tblSupplier.ToList().AsEnumerable(), "SupplierID", "SupplierName")), "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "Supplier" })
+
+                    </div>
+                    <div>
+                        <label>Approval Time:</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.ApprovalTime, new SelectList(db.tblApprovalTime, "Id", "ApprovalTime"), "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "ApprovalTime" })
+
+                    </div>
+                    <div>
+                        <label>MOT</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.MOT, new SelectList(db.tblMOT, "Name", "Name"), "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "MOT" })
+                    </div>
+                    <div>
+                        <label>Upload File:</label>
+                        <input type="file" name="file" id="file" class="form-control placeholder-no-fix" />
+                        @* @Html.TextBoxFor(m => m.pdffile, new { type = "file", name = "file", @class = "form-control placeholder-no-fix", id = "file" })*@
+                    </div>
+                    <div>
+                        <label>Description:</label>
+                        @Html.TextAreaFor(m => m.NewOrderDetail.Description, new { @class = "form-control", placeholder = "Product Description", id = "Discription" })
+                        @Html.ValidationMessageFor(m => m.NewOrderDetail.Description, null, new { style = "color: red" })
+                    </div>
+                    <div>
+                        <label>Theme:</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.Theme, new SelectList(db.tblTheme, "Name", "Name"), "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "theme" })
+
+                    </div>
+                    <div>
+                        <label>K.P.I:</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.KPI, new SelectList(db.tblKPI, "KPI", "KPI"), "--Select--", new { @class = "js-example-basic-single", style = "width: 100%;", id = "KPI" })
+                    </div>
+
+                    <div>
+                        <label>NeededBy:</label>
+                        @Html.TextBoxFor(m => m.NewOrderDetail.NeedByDate, new { type = "text", @class = "date-picker form-control", id = "needbydate" })
+                    </div>
+
+                    <div>
+                        <label>Charge Code:</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.Chargecode, new SelectList(db.PM_budgettable, "Chargecodename", "Chargecodename"), "--Select-- ", new { @class = "js-example-basic-single", style = "width: 100%;", id = "Chargecode" })
+
+                    </div>
+
+                    <div>
+                        <label>Status:</label>
+                        @Html.DropDownListFor(m => m.NewOrderDetail.Status, (from Status e in Enum.GetValues(typeof(Status)) select new SelectListItem { Value = e.ToString(), Text = e.ToString() }), "--Select--", new { @class = "form-control", id = "Status" })<br />
+                    </div>
+                    <div>
+                        <label>Air Way Bill Number:</label>
+                        @*   @Html.DropDownListFor(m => m.RecevedBy, new SelectList(db.Users, "ID", "FirstName"), "--Select--", new { @class = "form-control", id = "Status" })<br />*@
+                        @Html.TextBoxFor(m => m.NewOrderDetail.AirwayBillNumber, new { @class = "form-control", id = "AirwayBillNumber", Placeholder = "Enter Air way Bill Number" })<br />
+                    </div>
+                    <div>
+                        <label>Recevied By:</label>
+                        @*   @Html.DropDownListFor(m => m.RecevedBy, new SelectList(db.Users, "ID", "FirstName"), "--Select--", new { @class = "form-control", id = "Status" })<br />*@
+                        @Html.TextBoxFor(m => m.NewOrderDetail.RecevedBy, new { @class = "form-control", id = "RecevedBy", Placeholder = "Recevied By" })<br />
+                    </div>
+                    <div style="float: left; margin-left: 100px">
+                        <label>Call-Off: </label>
+                        @Html.CheckBoxFor(m => m.NewOrderDetail.Calloff, new { id = "calloff" })<br />
+                        <br />
+                    </div>
+                    <div style="margin-left: 500px">
+                        <label>LeadTime:</label>
+                        @Html.TextBoxFor(m => m.NewOrderDetail.LeadTime, new { id = "LeadTime", @readonly = "readonly" })<br />
+                        <br />
+                        <label>DueDate:</label>
+                        @Html.TextBoxFor(m => m.NewOrderDetail.DueDate, new { id = "DueDate", @readonly = "readonly" })
+                    </div>
+                    <br />
+                </div>
+                <br />
+                <div class="row">
+                    <div class="portlet box purple">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-cogs"></i>Add Items
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+                                <a href="javascript:;" class="reload" data-original-title="" title=""></a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="table-responsive">
+                                <table id="NewOrderItemDetails" class="table">
+                                    <thead class="flip-content">
+                                        <tr>
+                                            <td colspan="11">
+                                                <button id="btnAdd" type="button" onclick="addRow()" class="button-add">Add</button>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Product</th>
+                                        <th>Total Quantity</th>
+                                        <th>Qty Ordered</th>
+                                        <th>Qty Shipped</th>
+                                        <th>Qty Left</th>
+                                        <th>Unit Value</th>
+                                        <th>Additional Cost</th>
+                                        <th>Call OFF Date</th>
+                                        <th>Price</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                    @if (Model.NewOrderItemDetails != null)
+                                    {
+                                        for (int i = 0; i < Model.NewOrderItemDetails.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.Label((i + 1).ToString())
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(model => Model.NewOrderItemDetails[i].txtproduct, new { @class = "Product", })*@
+                                                    <input type="text" id="txtProduct_@Model.NewOrderItemDetails[i].Id" value="@Model.NewOrderItemDetails[i].txtproduct" name="NewOrderItemDetails[@i].txtproduct" class="Product" />
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(model => model.NewOrderItemDetails[i].txtTotalQuantity, new { @class = "QuntOrdered", @size = "10" })*@
+                                                    <input type="text" id="txtTotalQuantity_@Model.NewOrderItemDetails[i].Id" size="10" name="NewOrderItemDetails[@i].txtTotalQuantity" value="@Model.NewOrderItemDetails[i].txtTotalQuantity" class="QuntOrdered" />
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(o => o.NewOrderItemDetails[i].txtQuntOrdered, new { @class = "totalquantity", @size = "10" })*@
+                                                    <input type="text" id="txtQuntOrdered_@Model.NewOrderItemDetails[i].Id" size="10" value="@Model.NewOrderItemDetails[i].txtQuntOrdered" name="NewOrderItemDetails[@i].txtQuntOrdered" class="totalquantity" />
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(o => o.NewOrderItemDetails[i].txtQuntShipped, new { @id = "txtQuntShipped_" + i, @class = "QuntShipped", @size = "10" })*@
+                                                    <input type="text" id="txtQuntShipped_@Model.NewOrderItemDetails[i].Id" size="10" name="NewOrderItemDetails[@i].txtQuntShipped" value="@Model.NewOrderItemDetails[i].txtQuntShipped" class="QuntShipped" disabled />
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(o => o.NewOrderItemDetails[i].txtQuntLeft, new { @id = "txtQuntLeft_" + i, @class = "QuntLeft", @size = "10" })*@
+                                                    <input type="text" id="txtQuntLeft_@Model.NewOrderItemDetails[i].Id" size="10" name="NewOrderItemDetails[@i].txtQuntLeft" value="@Model.NewOrderItemDetails[i].txtQuntLeft" class="QuntLeft" disabled />
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(o => o.NewOrderItemDetails[i].txtUnitValue, new { @id = "txtUnitValue_" + i, @class = "UnitValue", @size = "10" })*@
+                                                    <input type="text" id="txtUnitValue_@Model.NewOrderItemDetails[i].Id" size="10" value="@Model.NewOrderItemDetails[i].txtUnitValue" name="NewOrderItemDetails[@i].txtUnitValue" class="UnitValue" />
+                                                </td>
+                                                <td>
+                                                    @*@Html.TextBoxFor(o => o.NewOrderItemDetails[i].txtAdditionalCost, new { @id = "txtAdditionalCost_" + i, @class = "AdditionalCost", @size = "10" })*@
+                                                    <input type="text" id="txtAdditionalCost_@Model.NewOrderItemDetails[i].Id" size="10" name="NewOrderItemDetails[@i].txtAdditionalCost" value="@Model.NewOrderItemDetails[i].txtAdditionalCost" class="AdditionalCost" disabled />
+                                                </td>
+                                                <td id="calloffdate1">
+                                                    @*@Html.TextBoxFor(o => o.NewOrderItemDetails[i].CallOffDate, new { @id = "CallOffDate_" + i, @class = "CallOffDate date-picker" })*@
+                                                    <input type="text" id="CallOffDate_@Model.NewOrderItemDetails[i].Id" name="NewOrderItemDetails[@i].CallOffDate" value="@Model.NewOrderItemDetails[i].CallOffDate" class="CallOffDate date-picker" disabled="disabled" />
+                                                </td>
+                                                @*<td>
+                                                    <input type="text" id="txtTotalValue_@Model.NewOrderItemDetails[i].Id" size="10" name="NewOrderItemDetails[@i].txtTotalValue" value="@Model.NewOrderItemDetails[i].txtTotalValue" class="TotalValue" disabled="disabled" />
+                                                </td>*@
+                                                <td>
+                                                    <input type="text" id="txtTotalValue_@Model.NewOrderItemDetails[i].Id" size="10" name="NewOrderItemDetails[@i].txtTotalValue" readonly="readonly" value="@Model.NewOrderItemDetails[i].txtTotalValue" class="TotalValue" />
+                                                </td>
+                                                <td>
+                                                    <input type="button" id="btnRemove_@Model.NewOrderItemDetails[i].Id" value="Remove" class="remRow" name="btnRemove" />
+                                                </td>
+                                                <td><input type="hidden" id="Id_@Model.NewOrderItemDetails[i].Id" name="NewOrderItemDetails[@i].Id" value="@Model.NewOrderItemDetails[i].Id" /></td>
+                                            </tr>
+
+                                        }
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="actions" style="float: right">
+                    <input type="submit" class="btn green" id="btnSubmit" value="Submit" />
+                </div>
+                <div class="actions">
+                    <a href="../../Order/PurchaseOrder" class="btn red">
+                        <span class="hidden-480">Back</span>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</body>

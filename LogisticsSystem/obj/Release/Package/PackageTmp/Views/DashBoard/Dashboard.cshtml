@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var date = db.PM_Order.ToList();
+    string Today = System.DateTime.Now.ToString("MM/dd/yyyy");
+    string dtYesterday = DateTime.Now.Date.AddDays(-1).ToString("MM/dd/yyyy");
+    string dtPastYesterday = DateTime.Now.Date.AddDays(-2).ToString("MM/dd/yyyy");
+    var TodayCount = db.PM_Order.Where(x => x.CreatedDate == Today).ToList().Count;
+    var YestCount = db.PM_Order.Where(x => x.CreatedDate == dtYesterday).ToList().Count;
+    var LastYestCount = db.PM_Order.Where(x => x.CreatedDate == dtPastYesterday).ToList().Count;
+    var date3 = db.PM_Order.Select(x => x.CreatedDate).Distinct().ToList();
+          
+}
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+
+            <h3 class="page-title">DashBoard<small>reports & statistics</small>
+            </h3>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @TodayCount
+                            </div>
+                            <div class="desc">
+                                Today Order
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @YestCount
+                            </div>
+                            <div class="desc">
+                                Yesterday Order
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @LastYestCount
+                            </div>
+                            <div class="desc">
+                                Last day Order
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1>Charts For PO Created</h1>
+            <div>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <h3>Bar Chart</h3>
+                                <img src="@Url.Action("GetRainfallChart")" alt="Bar Chart " />
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                 <h3>Pai Chart</h3>
+                                <img src="@Url.Action("CreatePie")" alt="Pie Chart " />
+                            </td>
+                        </tr>                       
+                        <tr>
+                            <td colspan="2">
+                                 <h3>Line Chart</h3>
+                                <img src="@Url.Action("CreateLine")" alt="Line Chart" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+</body>
+

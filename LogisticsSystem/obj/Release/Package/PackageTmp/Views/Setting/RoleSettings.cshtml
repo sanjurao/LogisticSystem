@@ -1,0 +1,226 @@
+﻿@model LogisticSystem.Models.MenueUser
+
+@using Logistic.Base.DataContext
+@using Logistic.Base.Enums
+@{
+    ViewBag.Title = "RoleSettings";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    LogisticsConnection db = new LogisticsConnection();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <fieldset>
+                <legend>Save User</legend>
+                <div class="note note-success">
+                    <p>
+                        @TempData["Msg"]
+                    </p>
+                </div>
+                @using (Html.BeginForm("SaveUser", "Setting", FormMethod.Post))
+                {
+                    <div>
+                        <label class="control-label visible-ie8 visible-ie9">User type Dropdown</label>
+                        @Html.DropDownList("UserType", (from UserType e in Enum.GetValues(typeof(UserType)) select new SelectListItem { Text = e.ToString() }), "--Select--", new { @class = "form-control", id = "Usertype" })
+                    </div>
+                    <br />
+                    <div>
+                        <input type="submit" id="user" value="Save" class="btn green" />
+                    </div>
+                }
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Save Menues</legend>
+                @*  <div class="note note-success">
+                    <p>
+                       @TempData["Msg"]
+                    </p>
+                </div>*@
+                @using (Html.BeginForm("SaveMenues", "Setting", FormMethod.Post))
+                {
+                    <div>
+                        <div>
+                            <label>Menu Name</label>
+                            @Html.TextBox("Menues", null, new { placeholder = "Enter Menue Name", @class = "form-control", id = "menues" })
+                        </div>
+                        <div>
+                            <label>Menu Link</label>
+                            @Html.TextBox("MenueLink", null, new { placeholder = "Enter Sub Menue Name", @class = "form-control", id = "menuelink" })
+                        </div>
+                        <div>
+                            <label>Sub Menu Name</label>
+                            @Html.TextBox("Submenu", null, new { placeholder = "Enter Sub Menue Name", @class = "form-control", id = "Submenu" })
+                        </div>
+                        <div>
+                            <label>Sub Menu Link</label>
+                            @Html.TextBox("SubmenueLink", null, new { placeholder = "Enter Sub Menue Name", @class = "form-control", id = "SubmenueLink" })
+                        </div>
+                    </div>
+                    <br />
+                    <div>
+                        <input type="submit" id="Menues" value="Save" class="btn green" />
+                    </div>
+                }
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Save Menues For All Users</legend>
+                @*    <div class="note note-success">
+                    <p>
+                        @ViewBag.Msg
+                    </p>
+                </div>*@
+                @using (Html.BeginForm("SaveMenueForUser", "Setting", FormMethod.Post))
+                {
+                    <div>
+                        <div>
+                            <label class="control-label">User type</label>
+                            @Html.DropDownListFor(m => m.UserId, new SelectList(db.tblUserType, "Id", "Name"), "--Select--", new { @class = "form-control", id = "Usertype1" })
+                        </div>
+                        <br />
+                        <div>
+                            <label class="control-label">Menu type</label>
+                            @Html.DropDownListFor(m => m.MenueId, new SelectList(db.tblmenues, "Id", "Name"), "--Select--", new { @class = "form-control", id = "MenuType" })
+                        </div>               
+                    </div>
+                    <br />
+                    <div>
+                        <input type="submit" id="Role" value="Save" class="btn green" />
+                    </div>
+                }
+            </fieldset>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#user').click(function (e) {
+                validateForm(e);
+            });
+
+            function validateForm(e) {
+                var Name = $('#Usertype').val();
+                var inputVal = new Array(Name);
+
+                var inputMessage = new Array("User Name");
+
+                $('.error').hide();
+
+                if (inputVal[0] == "") {
+                    e.preventDefault()
+                    $('#Usertype').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#Menues').click(function (e) {
+                validateForm(e);
+            });
+
+            function validateForm(e) {
+                var Name = $('#menues').val();
+                //var Link = $('#menuelink').val();
+                var Submenu = $('#Submenu').val();
+                var Submenulink = $('#SubmenueLink').val();
+                var inputVal = new Array(Name, Submenu, Submenulink);
+
+                var inputMessage = new Array("Menu Name", "Sub menu Link");
+
+                $('.error').hide();
+
+                if (inputVal[0] == "") {
+                    e.preventDefault()
+                    $('#menues').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                    return false;
+                }
+                if (inputVal[1] != "" && inputVal[2] == "") {
+                    e.preventDefault()
+                    $('#SubmenueLink').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#Role').click(function (e) {
+                validateForm(e);
+            });
+
+            function validateForm(e) {
+                var Name = $('#Usertype1').val();
+                var Type = $('#MenuType').val();
+                var inputVal = new Array(Name, Type);
+
+                var inputMessage = new Array("User Name", "menue");
+
+                $('.error').hide();
+
+                if (inputVal[0] == "") {
+                    e.preventDefault()
+                    $('#Usertype1').after('<span style="color:red" class="error"> Please Select ' + inputMessage[0] + '</span>');
+                    return false;
+                }
+                if (inputVal[1] == "") {
+                    e.preventDefault()
+                    $('#MenuType').after('<span style="color:red" class="error"> Please Select ' + inputMessage[1] + '</span>');
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+        });
+    </script>
+    <script type="text/javascript">
+        var timoutID;
+
+        //This function shows the checkboxlist
+        function ShowMList() {
+            var divRef = document.getElementById("divCheckBoxList");
+            divRef.style.display = "block";
+            var divRefC = document.getElementById("divCheckBoxListClose");
+            divRefC.style.display = "block";
+        }
+
+        //This function hides the checkboxlist
+        function HideMList() {
+            document.getElementById("divCheckBoxList").style.display = "none";
+            document.getElementById("divCheckBoxListClose").style.display = "none";
+        }
+
+        //This function finds the checkboxes selected in the list and using them,
+        //it shows the selected items text in the textbox (comma separated)
+        function FindSelectedItems(sender, textBoxID) {
+            var cblstTable = document.getElementById(sender.id);
+            var checkBoxPrefix = sender.id + "_";
+            var noOfOptions = cblstTable.rows.length;
+            var selectedText = "";
+            for (i = 0; i < noOfOptions ; ++i) {
+                if (document.getElementById(checkBoxPrefix + i).checked) {
+                    if (selectedText == "")
+                        selectedText = document.getElementById
+                                           (checkBoxPrefix + i).parentNode.innerText;
+                    else
+                        selectedText = selectedText + "," +
+                         document.getElementById(checkBoxPrefix + i).parentNode.innerText;
+                }
+            }
+            document.getElementById(textBoxID.id).value = selectedText;
+        }
+    </script>
+</body>

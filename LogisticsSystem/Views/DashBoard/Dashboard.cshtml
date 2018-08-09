@@ -1,0 +1,847 @@
+﻿@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var date = db.PM_Order.ToList();
+
+    DateTime baseDate = DateTime.Today;
+
+    //var today = baseDate.ToString("MM/dd/yyyy");
+    //var yesterday = baseDate.AddDays(-1).ToString("MM/dd/yyyy");
+    //var lastWeekStart = baseDate.AddDays(-7).ToString("MM/dd/yyyy");
+    //var lastMonthStart = baseDate.AddMonths(-1).ToString("MM/dd/yyyy");
+
+
+    var today = baseDate.ToString("dd/MM/yyyy");
+    var yesterday = baseDate.AddDays(-1).ToString("dd/MM/yyyy");
+    var thisWeekStart = baseDate.AddDays(-(int)baseDate.DayOfWeek);
+    var thisWeekEnd = thisWeekStart.AddDays(7).AddSeconds(-1);
+    var lastWeekStart = thisWeekStart.AddDays(-7);
+    var lastWeekEnd = thisWeekStart.AddSeconds(-1);
+    var thisMonthStart = baseDate.AddDays(1 - baseDate.Day);
+    var thisMonthEnd = thisMonthStart.AddMonths(1).AddSeconds(-1);
+    var lastMonthStart = thisMonthStart.AddMonths(-1);
+    var lastMonthEnd = thisMonthStart.AddSeconds(-1);
+    var lastYeasrStart = Convert.ToDateTime("01/01/" + baseDate.Year.ToString());
+    var lastYeasrEnd = Convert.ToDateTime("31/12/" + baseDate.Year.ToString());
+
+    var AcceptPOCount = date.Where(x => x.Status.Trim() == "Accept").ToList(); ;
+    var PreparedPOCount = date.Where(x => x.Status.Trim() == "Prepared").ToList(); ;
+    var shipped_to_agilityPOCount = date.Where(x => x.Status.Trim() == "shipped_to_agility").ToList(); ;
+    var ConsolidatingPOCount = date.Where(x => x.Status.Trim() == "Consolidating").ToList(); ;
+    var Shipped_To_RequisitionerPOCount = date.Where(x => x.Status.Trim() == "Shipped_To_Requisitioner").ToList(); ;
+    var Awaiting_pickup_by_EndUserPOCount = date.Where(x => x.Status.Trim() == "Awaiting_pickup_by_EndUser").ToList(); ;
+    var CreatedPOCount = date.Where(x => x.Status.Trim() == "Created").ToList();
+    var RejectPOCount = date.Where(x => x.Status.Trim() == "Reject").ToList();
+    var ReceivedPOCount = date.Where(x => x.Status.Trim() == "Received").ToList();
+
+    //var LastYestCount = db.PM_Order.Where(x => x.CreatedDate == dtDayBeforeYesterday).ToList().Count;
+    //var date3 = db.PM_Order.Select(x => x.CreatedDate).Distinct().ToList();
+
+}
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+
+            <h3 class="page-title">
+                DashBoard<small>reports & statistics</small>
+            </h3>
+            <br />
+
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Created </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @CreatedPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @CreatedPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @CreatedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @CreatedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @CreatedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Accepted </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @AcceptPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @AcceptPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @AcceptPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @AcceptPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @AcceptPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Preparing </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @PreparedPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @PreparedPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @PreparedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Week's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @PreparedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @PreparedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Shipped to Agility </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @shipped_to_agilityPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @shipped_to_agilityPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @shipped_to_agilityPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @shipped_to_agilityPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @shipped_to_agilityPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Consolidating </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ConsolidatingPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ConsolidatingPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ConsolidatingPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ConsolidatingPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ConsolidatingPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Shipped to Requisitioner </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Shipped_To_RequisitionerPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Shipped_To_RequisitionerPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Shipped_To_RequisitionerPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Shipped_To_RequisitionerPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Shipped_To_RequisitionerPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Awaiting Pickup by EndUser </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Awaiting_pickup_by_EndUserPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Awaiting_pickup_by_EndUserPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Awaiting_pickup_by_EndUserPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Awaiting_pickup_by_EndUserPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @Awaiting_pickup_by_EndUserPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Received </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ReceivedPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ReceivedPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ReceivedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ReceivedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @ReceivedPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Reject </b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @RejectPOCount.Where(x => x.CreatedDate == @today).Count()
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @RejectPOCount.Where(x => x.CreatedDate == @yesterday).Count()
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @RejectPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastWeekStart && Convert.ToDateTime(x.CreatedDate) <= lastWeekEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @RejectPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastMonthStart && Convert.ToDateTime(x.CreatedDate) <= lastMonthEnd).Count()
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @RejectPOCount.Where(x => Convert.ToDateTime(x.CreatedDate) >= lastYeasrStart && Convert.ToDateTime(x.CreatedDate) <= lastYeasrEnd).Count()
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-bottom:18px"><div style="border-bottom-style:groove;font-size:medium;color:blue">Status | <b> Expected Over Due Date</b></div></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat blue-madison">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @*@date.Where(x => x.NeedByDate.Value.Date == Convert.ToDateTime(@today)).Count()*@
+                                @*@date.Where(x => x.DueDate == @today).Count()*@
+                            </div>
+                            <div class="desc">
+                                Today's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat red-intense">
+                        <div class="visual">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @*@date.Where(x => x.NeedByDate.Value.Date == Convert.ToDateTime(@yesterday)).Count()*@
+                                @*@date.Where(x => x.DueDate == @yesterday).Count()*@
+                            </div>
+                            <div class="desc">
+                                Yesterday's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                               @* @date.Where(x => x.NeedByDate >= Convert.ToDateTime(lastWeekStart) && x.NeedByDate <= Convert.ToDateTime(lastWeekEnd)).Count()*@
+                                @*@date.Where(x => Convert.ToDateTime(x.DueDate) >= lastWeekStart && Convert.ToDateTime(x.DueDate) <= lastWeekEnd).Count()*@
+                                @*@date.Where(x => Convert.ToDateTime(x.DueDate) >= lastWeekStart && Convert.ToDateTime(x.DueDate) <= lastWeekEnd).Count()*@
+                            </div>
+                            <div class="desc">
+                                Last Weeks Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @*@date.Where(x => x.NeedByDate.Value.Date >= lastMonthStart.Date && x.NeedByDate.Value.Date <= lastMonthEnd.Date).Count()*@
+                                @*@date.Where(x => Convert.ToDateTime(x.DueDate) >= lastMonthStart && Convert.ToDateTime(x.DueDate) <= Convert.ToDateTime(lastMonthEnd)).Count()*@
+                            </div>
+                            <div class="desc">
+                                Last Month's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat green-haze">
+                        <div class="visual">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                @*@date.Where(x => x.NeedByDate.Value.Date >= lastYeasrStart && x.NeedByDate.Value.Date <= DateTime.Now.Date).Count()*@
+                                @*@date.Where(x => Convert.ToDateTime(x.DueDate) >= Convert.ToDateTime(lastYeasrStart) && Convert.ToDateTime(x.DueDate) <= Convert.ToDateTime(lastYeasrEnd)).Count()*@
+                            </div>
+                            <div class="desc">
+                                This Year's Orders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+        </div>
+
+    </div>
+</body>
+

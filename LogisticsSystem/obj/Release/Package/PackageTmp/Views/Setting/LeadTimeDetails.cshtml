@@ -1,0 +1,106 @@
+﻿@using Logistic.Base.DataContext
+@{
+    ViewBag.Title = "LeadTimeDetails";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    LogisticsConnection db = new LogisticsConnection();
+    var item = db.tblSupplier.ToList();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">Settings <small> Add LeadTime</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Setting </a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li></li>
+                </ul>
+
+            </div>
+             <div class="note note-success">
+                    <p>
+                        @TempData["Msg"]
+                    </p>
+                </div>
+            <div class="row">
+
+                <!-- BEGIN SAMPLE FORM PORTLET-->
+                <div class="portlet box blue">
+                    <div class="col-md-15">
+                        <div class="portlet box blue">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-edit"></i>
+                                    Lead Time
+                                </div>
+                            </div>
+
+                            <div class="portlet-body">
+                                <a href='@Url.Action("LeadTime", "Setting")' class="fancybox setting fancybox.ajax btn  green ">Add New</a>
+
+                                <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                                    <div class="col-md-13">
+                                        <div class="table-scrollable">
+                                        </div>
+                                        <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
+                                            <thead>
+                                                <tr>
+                                                    <th>#
+                                                    </th>
+                                                    <th>Supplier Name
+                                                    </th>
+                                                    <th>Leade Time
+                                                    </th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var i in item)
+                                                {
+                                                    <tr>
+                                                        <td>@i.Id
+                                                        </td>
+                                                        <td>@i.SupplierName
+                                                        </td>
+                                                        <td>@i.LeadTime
+                                                        </td>
+                                                        <td>
+                                                            <a id="" href="@Url.Action("LeadTime", "Setting", new { id = @i.Id })"  class="btn green icon-wrench fancybox setting fancybox.ajax" ></a>
+                                                        </td>
+                                                        <td>
+
+                                                            <a id="" href="@Url.Action("LeadTime", "Setting", new { id = @i.Id, E = "D" })" class="btn red icon-trash"  onclick="return confirm('Are you sure wanat to delete ?')" ></a>
+                                                        </td>
+
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+

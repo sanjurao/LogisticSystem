@@ -1,0 +1,195 @@
+﻿@model Logistic.Base.Entity.tblcomment
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "TimeLine";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    int poId = Convert.ToInt32(TempData["Id"]);
+    var item = db.PM_Order.Where(x => x.ID == poId).FirstOrDefault();
+    var po = db.PM_Order.Select(x => x.MSD_PO).FirstOrDefault();
+    int id = Convert.ToInt32(User.Identity.GetUserId());
+    string MsdPo = (string)TempData["MsdPo"];
+    var timelineData = db.tblTimeline.Where(x => x.PONo == MsdPo).ToList();
+    string PONO = string.Empty;
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="actions" style="float:right">
+                <a href="../../Order/PurchasingOrder" class="btn red">
+                    <span class="hidden-480">Back</span>
+                </a>
+            </div>
+            <h1>TimeLine.........</h1>
+            <p style="color:green;font-family:Arial;font-size:25px">PO Number:@po</p>
+            @foreach (var i in timelineData)
+            {
+                PONO = i.PONo;
+                var UserName = db.Users.Where(x => x.Id == i.UserId).Select(x => x.UserType).FirstOrDefault();
+                string FirstName = db.Users.Where(x => x.Id == i.UserId).Select(x => x.FirstName).FirstOrDefault();
+                string LastName = db.Users.Where(x => x.Id == i.UserId).Select(x => x.LastName).FirstOrDefault();
+                var UserImage = db.Users.Where(x => x.Id == i.UserId).Select(x => x.Image).FirstOrDefault();
+
+                var cooment = (from cData in db.tblcomment
+                               where cData.TimelineId == i.ID && cData.CommentOn == i.PONo
+                               orderby cData.ID descending
+                               select cData).Take(4).ToList();
+                var cooment1 = (from cData in cooment
+                                orderby cData.ID ascending
+                                select cData);
+
+                var image = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.Image).FirstOrDefault();
+                //var desc = db.tblTimeline.Where(x => x.PONo == j.PONo && x.UserId==id).Select(x => x.OrderDescription).ToList();
+                //string type = db.Users.Where(x => x.Id == id).Select(x => x.UserType).FirstOrDefault();
+                //var Notificationdata = db.tblTimeline.Where(x => x.UserId == id && x.NotificationFromValue != null && x.PONo == i.ID.ToString()).ToList();
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        @if (UserImage != null)
+                        {
+                            <div class="timeline-badge">
+                                <img class="timeline-badge-userpic" src="~/Images/@UserImage">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="timeline-badge">
+                                <img src="~/Images/default_user_icon.png" class="timeline-badge-userpic" />
+                            </div>
+
+                        }
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow">
+                            </div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <h4><b>@FirstName &nbsp;<span>@LastName &nbsp;</span><span>(@UserName)</span></b></h4>
+                                </div>
+                                <br />
+                                <div class="timeline-body-content">
+                                    Status Has Been Changed : <b>  <span style="color:blue">@item.Status</span></b><br />
+                                    @i.OrderDescription<br />
+                                    @i.NotificationContent<br />
+                                    @i.CreatedDate
+                                </div>
+                                @* @if (usertype == type)
+                                    {
+                                        foreach (var n in Notificationdata)
+                                        {
+                                            var ordernotification = db.tblTimeline.Where(x => x.PONo == n.PONo).Select(x => x.PONo).FirstOrDefault();
+                                            if (n.PONo ==i.ID.ToString())
+                                            {
+                                        <div class="timeline-body-content">
+                                            <label style="margin-left: 10px">@n.NotificationFromValue</label><br />
+                                            <span style="margin-left: 10px" class="font-grey-cascade">@n.NotificationContent </span>
+                                            <br />
+                                            <label style="margin-left: 10px">@n.NotificationCreatedDate</label>
+                                        </div>
+                                            }
+                                        }
+                                    }*@
+
+                                @foreach (var k in cooment1)
+                                {
+                                    int Id = Convert.ToInt32(k.CommentBy);
+                                    var Commentimage = db.Users.Where(x => x.Id == Id).Select(x => x.Image).FirstOrDefault();
+                                    var commentby = db.Users.Where(x => x.Id == Id).Select(x => x.FirstName).FirstOrDefault();
+                                    string LastName1 = db.Users.Where(x => x.Id == Id).Select(x => x.LastName).FirstOrDefault();
+                                    string usertype = db.Users.Where(x => x.Id == Id).Select(x => x.UserType).FirstOrDefault();
+
+                                    <div class="timeline-body-content">
+                                        @if (Commentimage != null)
+                                        {
+                                            <img src="~/Images/@Commentimage" style="height:30px;width:30px;float:left" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Images/default_user_icon.png" style="height: 30px; width: 30px; float: left" />
+                                        }
+                                        <label style="margin-left: 10px">@commentby &nbsp;<span>@LastName1 &nbsp;</span><span>(@usertype)</span></label><br />
+                                        <span style="margin-left: 10px" class="font-grey-cascade">@k.commentdata </span>
+                                        <br />
+                                        <label style="margin-left: 10px">@k.commentdate</label>
+                                    </div>
+                                }
+                            </div>
+
+
+                            @using (Html.BeginForm("Comment", "TimeLine", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                var urlreturn = "TimeLine/TimeLine?" + i.PONo;
+                                <div>
+                                    @if (image != null)
+                                    {
+                                        <img src="~/Images/@image" style="height:35px;width:35px;float:left" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Images/default_user_icon.png" style="height: 35px; width: 35px; float: left" />
+                                    }
+                                    <div style="float: left">
+                                        @Html.TextBoxFor(m => m.commentdata, new { @class = "form-control", style = "width:700px;margin-left: 20px", placeholder = "Write your comment......", id = "Comment" })
+                                        @Html.Hidden("id", i.UserId)
+                                        @Html.Hidden("OrderId", i.PONo)
+                                        @Html.Hidden("url", urlreturn)
+                                        @Html.Hidden("TimelineId", i.ID)
+
+                                    </div>
+                                    <div style="float: right">
+                                        <input type="submit" value="Post" data-value="@PONO" id="btnPost" class="btn green" disabled="disabled" />
+                                    </div>
+                                </div>
+                            }
+                          
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>  
+    <script>
+        $(document).ready(function () {
+            $('input[type="submit"]').prop('disabled', true);
+            $('input[type="text"]').keyup(function () {
+                if ($(this).val() != '') {
+                    $('input[type="submit"]').prop('disabled', false);
+                }
+                else {
+                    $('input[type="submit"]').prop('disabled', true);
+                }
+            });
+        });
+    </script>   
+    <script>
+
+        function send() {         
+            $.ajax({
+                method: 'Post',
+                url: '/Timeline/SendtimelineEmail',
+                data: "{PONO:'" + JSON.stringify($("#btnPost").attr("data-value")) + "'}",
+                contentType: "application/json; charset=utf-8",
+                datatype: "jsondata",
+                async: "true",
+                cache: false,
+                success: function (data) {
+                    return false;
+                },
+                error: function (x, t, e) {
+                    alert('Sorry, your settings could not be loaded');
+                }
+            });
+        };
+  
+
+    </script>
+    @if (TempData["run"] == "true")
+    {
+        <script type="text/javascript">
+            send();
+        </script>
+    }
+</body>
+
+
+

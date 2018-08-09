@@ -1,0 +1,84 @@
+﻿@model LogisticsSystem.Models.UserViewModel
+@using Logistic.Base.Enums
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="portlet light">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                        <i class="icon-globe theme-font hide"></i>
+                        <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>&nbsp;
+                        <span>
+                            <a href="../../UserProfile/MyProfile">
+                                <i class="icon-home"></i>
+                                Home </a></span>
+
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab_1_1" data-toggle="tab" aria-expanded="true">Personal Info</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portlet-body">
+                    <div class="tab-content">
+                        <!-- PERSONAL INFO TAB -->
+                        <div class="tab-pane active" id="tab_1_1">
+                            @Html.ValidationSummary(true)
+                            @using (Html.BeginForm("EditProfile", "UserProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {                     
+         
+                                <div class="form-group">
+                                    <label class="control-label">Choose Image</label>
+                                    <input type="file" id="Image" name="Image" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">First Name</label>
+                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Last Name</label>
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                                </div>                             
+                                <div class="form-group">
+                                    <label class="control-label">Gender</label>
+                                    @Html.DropDownListFor(m => m.Gender, (from Gender e in Enum.GetValues(typeof(Gender)) select new SelectListItem { Text = e.ToString() }), "--Select--", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Phone</label>
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Address</label>
+                                    @Html.TextAreaFor(m => m.Address, new { @class = "form-control", placeholder = "Address" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">City</label>
+                                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "City" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Zip Code</label>
+                                    @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", placeholder = "Zip Code" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Country</label>
+                                    @Html.DropDownListFor(m => m.Country, (from Countries e in Enum.GetValues(typeof(Countries)) select new SelectListItem { Text = e.ToString() }), "--Select--", new { @class = "form-control", placeholder = "Country" })
+                                </div>
+                                <div class="margiv-top-10">
+                                    <input type="submit" class="btn green" value="Submit" />
+                                    <a href="javascript:;" class="btn default">Cancel </a>
+                                </div>
+                           
+                            }
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

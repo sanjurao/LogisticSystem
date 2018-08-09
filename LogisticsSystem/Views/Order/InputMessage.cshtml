@@ -1,0 +1,81 @@
+﻿@model Logistic.Base.Entity.tblMessage
+@{
+    ViewBag.Title = "InputMessage";
+    Layout = "~/Views/Shared/Blank.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+}
+<script src="~/js/jquery-1.11.3.min.js"></script>
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">New Message</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm("Message", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <div>
+                    <label>To</label>
+                    @Html.DropDownListFor(m => m.ToId, new SelectList(db.Users.Where(x => x.Email != User.Identity.Name), "ID", "FirstName"), "--Select User--", new { @class = "form-control", id = "To" })
+                </div>
+
+                <div>
+                    <label>Subject</label>
+                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control placeholder-no-fix", placeholder = "Subject", id = "Subject" })
+                </div>
+
+                <div>
+                    <label>Message</label>
+                    @Html.TextAreaFor(m => m.Body, new { @class = "form-control", placeholder = "Message", rows = "3", id = "message" })
+                </div>
+            </div> 
+            <div class="form-actions">
+                <input type="submit" id="Search" value="Send" class="btn btn-primary" />
+            </div>
+            
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#Search').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var To = $('#To').val();
+            var Subject = $('#Subject').val();
+            var message = $('#message').val();
+
+            var inputVal = new Array(To, Subject, message);
+
+            var inputMessage = new Array("To Name", "Subject", "message");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#To').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                return false;
+            }
+
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#Subject').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                return false;
+            }
+
+            if (inputVal[2] == "") {
+                e.preventDefault()
+                $('#message').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[2] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>

@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "MessageDisplay";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var UId=db.Users.Where(x=>x.Email==User.Identity.Name).Select(x=>x.Id).FirstOrDefault();
+    var itemdata = db.tblMessage.Where(x => x.ToId == UId).ToList();
+    var senddata = db.tblMessage.Where(x => x.FromId == UId).ToList();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>Incoming Message 
+                        </div>
+                      
+                    </div>
+                    <div class="portlet-body">
+                     
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                           
+                            <div class="table-scrollable">
+                                <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									 From
+								: activate to sort column ascending"
+                                                style="width: 161px;">From
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									Subject
+								: activate to sort column ascending"
+                                                style="width: 205px;">Subject
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Message
+								: activate to sort column ascending"
+                                                style="width: 109px;">Message
+                                            </th>
+                                        @*    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Notes
+								: activate to sort column ascending"
+                                                style="width: 140px;">Date Of Message
+                                            </th>*@
+                                     
+                                            <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Reply
+								: activate to sort column ascending"
+                                                style="width: 112px;">Reply
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var i in itemdata)
+                                        {
+                                            var fromname = db.Users.Where(x => x.Id == i.FromId).Select(x => x.FirstName).FirstOrDefault();
+                                            <tr role="row" class="odd">
+
+                                                <td>@fromname
+                                                </td>
+                                                <td>@i.Subject
+                                                </td>
+                                                <td>@i.Body</td>
+                                                <td><a href="@Url.Action("Reply", "Order", new { Id = @i.ID })" class="btn default btn-xs green-stripe">Reply </a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+         
+                        </div>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+             <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>Sent Message 
+                        </div>
+                      
+                    </div>
+                    <div class="portlet-body">
+                     
+                        <div id="sample_editable_2_wrapper" class="dataTables_wrapper no-footer">
+                           
+                            <div class="table-scrollable">
+                                <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_2" role="grid" aria-describedby="sample_editable_2_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									 Name
+								: activate to sort column ascending"
+                                                style="width: 161px;">Name
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Subject
+								: activate to sort column ascending"
+                                                style="width: 205px;">Subject
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Message
+								: activate to sort column ascending"
+                                                style="width: 109px;">Message
+                                            </th>
+                                        @*    <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Notes
+								: activate to sort column ascending"
+                                                style="width: 140px;">Date Of Message
+                                            </th>*@
+                                     
+                                            <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Reply
+								: activate to sort column ascending"
+                                                style="width: 112px;">Reply
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var i in senddata)
+                                        {
+                                            var fromname = db.Users.Where(x => x.Id == i.FromId).Select(x => x.FirstName).FirstOrDefault();
+                                            <tr role="row" class="odd">
+                                                <td>@fromname
+                                                </td>
+                                                <td>@i.Subject
+                                                </td>
+                                                <td>@i.Body</td>
+                                                <td><a href="@Url.Action("Reply", "Order", new { Id = @i.ID })" class="btn default btn-xs green-stripe">Reply </a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+

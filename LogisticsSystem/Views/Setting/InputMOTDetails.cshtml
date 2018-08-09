@@ -1,0 +1,65 @@
+﻿@model Logistic.Base.Entity.tblMOT
+@{
+    ViewBag.Title = "InputMOTDetails";
+    Layout = "~/Views/Shared/Blank.cshtml";
+}
+<script src="~/js/jquery-1.11.3.min.js"></script>
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">MOT</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label>MOT Name</label>
+                @Html.TextBoxFor(m => m.Name, null, new { @class = "form-control", id = "Name" })
+
+            </div>
+            <div class="form-group">
+                <label>MOT Duration</label>
+                @Html.TextBoxFor(m => m.Duration, null, new { @class = "form-control", id = "Duration" })
+
+            </div>
+                  
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" id="Search" />
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#Search').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var Name = $('#Name').val();
+            var Duration = $('#Duration').val();
+
+            var inputVal = new Array(Name, Duration);
+
+            var inputMessage = new Array("MOT Type", "MOT Duration");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#Name').after('<span style="color:red" class="error"> Please enter ' + inputMessage[0] + '</span>');
+                return false;
+            }
+
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#Duration').after('<span style="color:red" class="error"> Please enter ' + inputMessage[1] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>

@@ -1,0 +1,190 @@
+﻿@model LogisticSystem.Models.RoleViewModel
+@using Logistic.Base.DataContext
+@{
+   
+    ViewBag.Title = "ManageRole";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    LogisticsConnection db = new LogisticsConnection();
+    try
+    {
+        var roleid = Model.Role;
+    }
+    catch { }
+}
+
+}
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h1>Role Management......</h1>
+            <p style="color: red; marquee-direction: forward; marquee-loop: infinite; marquee-speed: normal; marquee-style: scroll">Please Select User check box first and then the menue to allow and disallow:</p>
+            @using (Html.BeginForm("ManageRole", "RoleManagement", FormMethod.Post))
+            {
+                <div id="sample_editable_1_wrapper" class="table-scrollable">
+                    <table class="table table-striped table-bordered table-hover" border="1">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                @{
+                                
+                try
+                {
+                    foreach (var user in Model.menues)
+                    { 
+                                    <th>@user.Name
+                                    </th>
+                    }
+                }
+                catch { }
+                                }
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{
+                try
+                {
+                    foreach (var user in Model.usertype)
+                    {
+                        var checkBoxId1 = "chk" + user.Id;
+                       
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="uid"  value="@user.Id" class="uid" />
+                                        @user.Name
+                                    </td>
+
+                                    @foreach (var menue in Model.menues)
+                                    {
+                                        var status = db.tblRole.Where(x => x.typeId == user.Id && x.menuId == menue.Id).Select(x => x.Status).FirstOrDefault();
+                                        var checkBoxId = "chk" + menue.Id;
+                                        <td>
+                                            @Html.Hidden("hdfMenueId", menue.Id)
+                                            <input type="checkbox" name="sid"  value="@menue.Id" class="sid" />
+
+                                        </td>                                                                                              
+                                    }
+                                    <td>
+                                        <input type="submit" value="Allow" id="btn" class="btn blue" /></td>
+                                </tr>                       
+                    }
+                }
+                catch { }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div class="table-scrollable">
+                    <table class="table table-striped table-bordered table-hover" border="1">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                @{
+                try
+                {
+                    foreach (var user in Model.menues)
+                    { 
+                                    <th>
+
+                                        @user.Name
+                                    </th>
+                    }
+                }
+                catch { }            }
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{
+                try
+                {
+                    foreach (var user in Model.usertype)
+                    {
+                        var checkBoxId1 = "chk" + user.Id;
+                       
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="uid"  value="@user.Id" class="uid" />
+                                        @user.Name
+                                    </td>
+
+                                    @foreach (var menue in Model.menues)
+                                    {
+                                        var status = db.tblRole.Where(x => x.typeId == user.Id && x.menuId == menue.Id).Select(x => x.Status).FirstOrDefault();
+                                        var checkBoxId = "chk" + menue.Id;
+                                        if (status == true)
+                                        {
+                                        <td>
+                                            <input type="checkbox" name="sid"  value="@menue.Id" class="sid" />
+                                            <span class="label label-sm label-success">Allow</span>
+
+                                        </td>   
+                                        }
+
+                                        else
+                                        {
+                                        <td>
+
+                                            <span class="label label-sm label-success">Not Allowed</span>
+                                        </td>   
+                                        }
+                                    }
+
+
+                                    <td>
+                                        <input type="submit" value="DisAllow" name="btnupdate" id="btn1" class="btn blue" /></td>
+                                </tr>                       
+                    }
+                }
+                catch { }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+    }
+    catch { }
+    @* <script src="~/Scripts/jquery-1.7.1.min.js"></script>*@
+    <script>
+        $("document").ready(function () {
+            $("#chkAll").click(function () {
+                var checked = $(this).is(':checked');
+                $(".sid").attr("checked", checked);
+            });
+            $(".sid").click(function () {
+                var valid = true;
+                $(".sid").each(function () {
+                    var checked = $(this).is(':checked');
+                    if (!checked) {
+                        valid = false;
+                    }
+                });
+                $("#chkAll").attr("checked", valid);
+            });
+        });
+    </script>
+    <script>
+        $("document").ready(function () {
+            $("#chkAll").click(function () {
+                var checked = $(this).is(':checked');
+                $(".uid").attr("checked", checked);
+            });
+            $(".uid").click(function () {
+                var valid = true;
+                $(".uid").each(function () {
+                    var checked = $(this).is(':checked');
+                    if (!checked) {
+                        valid = false;
+                    }
+                });
+                $("#chkAll").attr("checked", valid);
+            });
+        });
+    </script>
+</body>

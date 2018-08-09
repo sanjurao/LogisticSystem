@@ -1,0 +1,171 @@
+﻿@model Logistic.Base.Entity.UM_User
+@{
+    ViewBag.Title = "Desh || Board";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+@{
+    if (Session["Username"] != null)
+    {
+        Html.Label(Session["UserName"].ToString());
+    }
+    
+}
+<link href="../../Content/themes/Pop.css" rel="stylesheet" />
+<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid">
+    @*<div class="page-header navbar navbar-fixed-top">*@
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            Widget settings form goes here
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn blue">Save changes</button>
+                            <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm btn-default" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block"></span>&nbsp; <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <h3 class="page-title">Dashboard <small>reports & statistics</small>
+            </h3>
+          
+            <div class="clearfix">
+            </div>
+          
+            <div class="clearfix">
+            </div>
+           
+            <div class="clearfix">
+            </div>
+          
+            <div class="clearfix">
+            </div>
+         
+            <div class="clearfix">
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                <a href="#x" class="overlay" id="login_form"></a>
+                <div class="popup">
+                    <form class="register-form" action="index.html" method="post">
+
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">First Name</label>
+                            <input name="text" class="form-contro5 placeholder-no-fix" placeholder="First Name" cols="" rows=""></input>
+
+
+                        </div>
+                        <div class="form-group">
+
+                            <label class="control-label visible-ie8 visible-ie9">Last Name</label>
+                            <input class="form-contro5 placeholder-no-fix" type="text" placeholder="Last name" name="city" />
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label visible-ie8 visible-ie9">Address</label>
+                            <input class="form-contro5 placeholder-no-fix" type="text" placeholder="Address" name="city" />
+                        </div>
+                        <div class="form-group">
+
+                            <label class="control-label visible-ie8 visible-ie9">Mobile No.</label>
+                            <input class="form-contro5 placeholder-no-fix" type="text" placeholder="Mobile No" name="city" />
+                        </div>
+                        <div class="form-group">
+
+                            <label class="control-label visible-ie8 visible-ie9">Email</label>
+                            <input class="form-contro5 placeholder-no-fix" type="text" placeholder="Email" name="city" />
+                        </div>
+                        <div class="form-group">
+
+                            <label class="control-label visible-ie8 visible-ie9">Is Active</label>
+                            <input class="form-contro5 placeholder-no-fix" type="text" placeholder="Is Active" name="city" />
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+                        </div>
+                        <div class="form-group"></div>
+                        <br>
+                        <a class="close" href="#close"></a>
+                </div>
+            </div>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>First Name
+                        </th>
+                        <th>User Name
+                        </th>
+                        <th>Password
+                        </th>
+                        <th>Phone
+                        </th>
+                        <th>UserType
+                        </th>
+                        <th>isActive
+                        </th>
+                      @*  <td>Action
+                        </td>*@
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.User != null)
+                    {
+                        foreach (var item in ViewBag.User)
+                        {
+                        <tr>
+                            <td>@item.FirstName
+                            </td>
+                            <td>@item.UserName
+                            </td>
+                            <td>@item.Password
+                            </td>
+                            <td>@item.PhoneNumber
+                            </td>
+                            <td>@item.UserType
+                            </td>
+                            <td>@item.IsActive
+                            </td>
+                           @* <td>
+                                <a class="edit" href="#login_form" id="login_pop">Edit </a>*@
+                               @* @Html.ActionLink("Approve","Approve", new { id=item.Id})*@
+                                @*<a class="delete" href="javascript:;">Approve </a>&nbsp<span><a class="delete" href="javascript:;">DisAppove</a></span>
+                            </td>*@
+                          
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*  </div>*@
+</body>

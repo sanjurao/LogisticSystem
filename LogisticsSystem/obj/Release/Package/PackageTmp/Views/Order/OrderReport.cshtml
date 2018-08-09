@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "OrderReport";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var itemdata = db.PM_UserOrder.ToList();
+}
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>Order Report Table
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									 Username
+								: activate to sort column ascending"
+                                            style="width: 161px;">End User Name
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Full Name
+								: activate to sort column ascending"
+                                            style="width: 205px;">Requitioner Name
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Points
+								: activate to sort column ascending"
+                                            style="width: 109px;">Comments
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Notes
+								: activate to sort column ascending"
+                                            style="width: 140px;">Date Of Requirement
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Edit
+								: activate to sort column ascending"
+                                            style="width: 76px;">File
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Delete
+								: activate to sort column ascending"
+                                            style="width: 112px;">Status
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Delete
+								: activate to sort column ascending"
+                                            style="width: 112px;">Report View
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+
+
+
+                                    @foreach (var i in itemdata)
+                                    {
+                                        var endusername = db.Users.Where(x => x.Id == i.UserID).Select(x => x.FirstName).FirstOrDefault();
+                                        var rename = db.Users.Where(x => x.Id == i.OriginaterID).Select(x => x.FirstName).FirstOrDefault();
+                                        <tr role="row" class="odd">
+
+                                            <td>@endusername
+                                            </td>
+                                            <td>@rename
+                                            </td>
+                                            <td>@i.Comments</td>
+                                            <td>@i.DateReq</td>
+                                            <td class="center"><a href="@Url.Action("Download", "Order", new { fileName = @i.PdfFileGuid })" target="_blank">@i.PdfFileGuid</a>
+                                            </td>
+                                            <td>
+                                                @if (i.Statusorder != null)
+                                                {
+                                                    <span class="label label-sm label-success">@i.Statusorder   </span>
+                                                    
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-sm label-default">Blocked </span>
+                                                }
+
+                                            </td>
+
+                                            <td><a href="@Url.Action("ReportView", "Order", new { id = @i.ID })" class="btn default btn-xs green-stripe">View </a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+ 
+</body>

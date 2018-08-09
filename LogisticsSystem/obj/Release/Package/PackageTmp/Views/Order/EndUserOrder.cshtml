@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "EndUserOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var itemdata = db.PM_UserOrder.ToList();
+    
+}
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>End User Order
+                        </div>
+                        <div class="actions">
+                            <a href="../../Order/PurchaseOrder" class="btn red">
+                                <span class="hidden-480">Back</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <thead>
+                                    <tr>
+                                        <th>End User Name
+                                        </th>
+                                        <th>Comments
+                                        </th>
+                                        <th>Date Required
+                                        </th>
+                                        <th>Requitioner Name
+                                        </th>
+                                        <th>File
+                                        </th>
+                                        <th>
+                                        Status
+                   
+                        <th>Approve/Reject</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var j in itemdata)
+                                    {
+                                        var endusername = db.Users.Where(x => x.Id == j.UserID).Select(x => x.FirstName).FirstOrDefault();
+                                        var reqname = db.Users.Where(x => x.Id == j.OriginaterID).Select(x => x.FirstName).FirstOrDefault();
+                                        <tr>
+                                            <td>
+                                                @endusername
+                                            </td>
+                                            <td>
+                                                @j.Comments
+                                            </td>
+                                            <td>
+                                                @j.DateReq
+                                            </td>
+                                            <td>
+                                                @reqname
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Download", "Order", new { fileName = @j.PdfFileGuid })" target="_blank">@j.PdfFileGuid</a>
+                                            </td>
+                                            <td>
+                                                @if (j.Statusorder != null)
+                                                {
+                                                    <span class="label label-sm label-success">@j.Statusorder   </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-sm label-success">Pending </span>
+                                                }
+
+
+                                            </td>
+
+                                            <td>
+                                                <a href="@Url.Action("EditEndUserOrder", "Order", new { id = @j.ID, })" class="label label-sm label-success">Approve/Reject</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+
+    </div>
+
+    </div>
+</body>

@@ -1,0 +1,210 @@
+﻿
+@model Logistic.Base.Entity.tblMessage
+@{
+    ViewBag.Title = "Message";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var UId = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.Id).FirstOrDefault();
+    var itemdata = db.tblMessage.Where(x => x.ToId == UId).ToList().OrderByDescending(x => x.Date);
+    int userid = Convert.ToInt32(ViewBag.UId);
+    var j = db.tblMessage.Where(x => x.ID == userid).FirstOrDefault();
+    var senddata = db.tblMessage.Where(x => x.FromId == UId).ToList().OrderByDescending(x => x.Date);
+}
+<body>
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="row">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-shopping-cart"></i>Message Listing
+                        </div>
+                        <div class="actions">
+                            <a href='@Url.Action("InputMessage", "Order")' class="btn  green fancybox setting fancybox.ajax">New Message</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            Message Table
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_2_wrapper" class="dataTables_wrapper no-footer">
+
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_2">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									 Username
+								: activate to sort column ascending"
+                                            style="width: 161px;">From
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Full Name
+								: activate to sort column ascending"
+                                            style="width: 205px;">Subject
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Points
+								: activate to sort column ascending"
+                                            style="width: 109px;">Message
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="	 Notes
+								                 : activate to sort column ascending"
+                                            style="width: 140px;">Action
+                                        </th>
+
+
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Delete
+								: activate to sort column ascending"
+                                            style="width: 112px;">Reply
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in itemdata)
+                                    {
+                                        var fromname = db.Users.Where(x => x.Id == i.FromId).Select(x => x.FirstName).FirstOrDefault();
+                                        <tr role="row" class="odd">
+
+                                            <td>@fromname
+                                            </td>
+                                            <td>@i.Subject
+                                            </td>
+                                            <td>@i.Body</td>
+                                            <td>
+                                               @* <a id="" href="@Url.Action("Message", "Order", new { UId = @i.ID, E = "V" })"  class="btn purple-plum" >View </a>*@
+                                                @* <a id="" href="@Url.Action("Message", "Order", new { UId = @i.ID, E="D" })"  class="btn purple-plum" >Delete </a>*@
+                                                @Html.ActionLink("Delete", "Message", "Order", new { UId = @i.ID, E = "D" }, new { @class = "btn purple-plum" })
+                                            </td>
+
+                                            <td>
+                                                <a href='@Url.Action("Reply", "Order", new { Id = @i.ID })' class="btn  green fancybox setting fancybox.ajax">Reply</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                          Sent Message 
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_3_wrapper" class="dataTables_wrapper no-footer">
+
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									 Name
+								: activate to sort column ascending"
+                                            style="width: 161px;">Name
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Subject
+								: activate to sort column ascending"
+                                            style="width: 205px;">Subject
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Message
+								: activate to sort column ascending"
+                                            style="width: 109px;">Message
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in senddata)
+                                    {
+                                        var fromname = db.Users.Where(x => x.Id == i.FromId).Select(x => x.FirstName).FirstOrDefault();
+                                        <tr role="row" class="odd">
+                                            <td>@fromname
+                                            </td>
+                                            <td>@i.Subject
+                                            </td>
+                                            <td>@i.Body</td>
+                                            @*<td><a href="@Url.Action("Reply", "Order", new { Id = @i.ID })" class="btn default btn-xs green-stripe">Reply </a></td>*@
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#btnSubmit').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var Reqid = $('#To').val();
+            var comment = $('#comment').val();
+            var reqdate = $('#reqDate').val();
+            var file = $('#file').val();
+
+            var inputVal = new Array(Reqid, comment, reqdate, file);
+
+            var inputMessage = new Array("Select User", "Subject", "Required date", "Description");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#To').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                return false;
+            }
+
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#comment').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                return false;
+            }
+
+            if (inputVal[2] == "") {
+                e.preventDefault()
+                $('#reqDate').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[2] + '</span>');
+                return false;
+            }
+
+            if (inputVal[3] == "") {
+                e.preventDefault()
+                $('#file').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[3] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>
+
+

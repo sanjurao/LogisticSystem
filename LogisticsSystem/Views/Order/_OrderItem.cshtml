@@ -1,0 +1,13 @@
+﻿@using HtmlHelpers.BeginCollectionItem
+@model LogisticSystem.Models.NewOrderItemDetail
+
+@{
+    if (ViewContext.FormContext == null)
+    {
+        ViewContext.FormContext = new FormContext();
+    }
+}
+@using (Html.BeginCollectionItem("Items"))
+{
+    @Html.EditorForModel()
+}

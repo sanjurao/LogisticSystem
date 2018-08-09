@@ -1,0 +1,214 @@
+﻿@model IEnumerable<Logistic.Base.Entity.PM_Order>
+@{
+    ViewBag.Title = "PurchaseOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var date = System.DateTime.Now.ToString("MM/dd/yyyy");
+    var item = db.PM_Order.Where(x => x.CreatedDate == date && x.IsActive == true && x.CheckStatus == false).ToList();
+    var items1 = db.PM_Order.Where(x => x.Close == false).ToList();
+    //var sendlist = db.PM_Order.Where(x => x.CreatedDate == date && x.Close == false).ToList();
+    var sendlist = db.PM_Order.Where(x => x.Close == false).ToList();
+
+}
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">
+                Purchase <small>Purchase listing</small>
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            @* <div class="actions">
+                                    <a href="../../Order/EndUserOrder" class="btn green">
+                                        <span class="hidden-480">End User Order List</span>
+                                    </a>
+                                </div>*@
+                            <div class="actions">
+                                <a href="../../Order/PurchaseOrderView" class="btn red">
+                                    <span class="hidden-480">PO List</span>
+                                </a>
+                            </div>
+                            <div class="actions">
+                                <a href="../../Order/NewOrder" class="btn green">
+                                    <span class="hidden-480">New PO </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End: life time stats -->
+                </div>
+            </div>
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>New Created PO
+                        </div>
+
+                    </div>
+
+
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_2_wrapper" class="dataTables_wrapper no-footer">
+
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_2_info">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            ORAPO No.
+                                        </th>
+                                        <th>
+                                            MSDPO No.
+                                        </th>
+                                        <th> Date Created</th>
+                                        <th>
+                                            Theme
+                                        </th>
+                                        <th>Supplier</th>
+                                        <th> Expected Date</th>
+                                        <th>
+                                            Calloff
+                                        </th>
+                                        <th>pdf</th>
+                                        <th>Status</th>
+                                        <th>Location</th>
+                                        <th>
+                                            Edit
+                                        </th>
+                                        <th>
+                                            Delete
+                                        </th>
+                                        <th>Create</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in item)
+                                    {
+                                        string supplierid = db.Users.Where(x => x.Id == i.SupplierID).Select(x => x.Email).FirstOrDefault();
+                                        <tr>
+                                            <td>
+                                                @i.ORAPoNumber
+                                            </td>
+                                            <td>
+                                                @i.MSD_PO
+                                            </td>
+                                            <td>
+                                                @i.CreatedDate
+                                            </td>
+                                            <td>
+                                                @i.Theme
+                                            </td>
+                                            <td>@supplierid</td>
+                                            <td>@i.NeedByDate</td>
+                                            <td class="center">
+                                                @i.Calloff
+                                            </td>
+                                            <td>
+                                                <a href="/Order/Download/@i.ID">
+                                                    <img src="~/Images/pdfIcon.png" height="30" width="30" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-success">@i.Status</span>
+
+                                            </td>
+                                            <td>@i.Location</td>
+                                            <td>
+                                                <a id="" href="@Url.Action("NewOrder", "Order", new { id = i.ID })" class="label label-sm label-success">Edit</a>
+                                            </td>
+                                            <td>
+                                                <a id="" href="@Url.Action("NewOrder", "Order", new { id = i.ID, E = "D" })" class="label label-sm label-success">Delete</a>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Create PO", "SendData", new { Cid = i.Consolidator, Sid = i.SupplierID, Eid = i.OrgUID, Id = i.ID, orderid = i.ID, ccode = i.Chargecode, orgId = i.EndUserId }, new { @class = "label label-sm label-success", id = "CreatePO" })
+                                                @*   @Html.ActionLink("jfkdfk","#",new { Cid = i.Consolidator, Sid = i.SupplierID, Eid = i.OrgUID, Id = i.ID, orderid = i.ID, ccode = i.Chargecode, orgId = i.EndUserId }, new { @class = "label label-sm label-success",id="CreatePO" })*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>Created PO
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <thead>
+                                    <tr>
+                                        <th>PO No.
+                                        </th>
+                                        <th>Theme
+                                        </th>
+                                        <th>KPI
+                                        </th>
+                                        <th>Calloff
+                                        </th>
+                                        <th>Status</th>
+                                        <th>Report View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var j in sendlist)
+                                    {
+                                        <tr>
+                                            <td>@j.ORAPoNumber-Requtioner
+                                            </td>
+                                            <td>@j.Theme
+                                            </td>
+                                            <td>@j.KPI
+                                            </td>
+                                            <td class="center">@j.Calloff
+                                            </td>
+                                            <td>
+                                                <span class="label label-sm label-success">@j.Status</span>
+                                            </td>
+                                            <td><a href="@Url.Action("PurchaseReportView", "Order", new { id = @j.ID })" class="btn green">View </a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>*@
+        </div>
+    </div>
+    <script>
+        $('#btnSubmit').click(function () {
+            $.ajax({
+                type: "POST",
+                url: Order / SendNotification,
+                data: "",
+                contentType: "",
+                dataType: "json",
+                processdata: true,
+                success: function (json) {
+                    alert("created successfully");
+                },
+                error: ServiceFailed
+            });
+        });
+    </script>
+</body>

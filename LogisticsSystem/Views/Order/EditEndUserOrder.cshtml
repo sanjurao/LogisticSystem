@@ -1,0 +1,170 @@
+﻿@model Logistic.Base.Entity.PM_UserOrder
+
+@using Logistic.Base.Enums
+
+@{
+    ViewBag.Title = "EditEnduserOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<link href="../../Content/themes/base/Pop1.css" rel="stylesheet" />
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+     <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            
+            <!-- /.modal -->
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN STYLE CUSTOMIZER -->
+            
+            <!-- END STYLE CUSTOMIZER -->
+            <!-- BEGIN PAGE HEADER-->
+          
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Requitioner</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Approve/Reject Order</a>
+                    </li>
+                </ul>
+                
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+                <div class="col-md-12">
+                    
+                
+                    @using (Html.BeginForm("EditEnduserOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.HiddenFor(m => m.UserID)
+                        @Html.HiddenFor(m => m.PdfFileGuid)
+                        @Html.HiddenFor(m => m.IsActive)
+                        @Html.HiddenFor(m => m.OriginaterID)
+                        @Html.HiddenFor(m => m.Status)
+                          @Html.HiddenFor(m => m.DateReq)
+                        <div class="form-group">
+                            @*<div class="form-group">
+                                                <label class="control-label visible-ie8 visible-ie9" id="useridlable">User ID</label>
+                                                @Html.TextBoxFor(m => m.UserID, new { @class = "form-control placeholder-no-fix", placeholder = "User ID", id = "userid" })
+                                            </div>*@
+
+                            <div class="form-group">
+                                <label class="control-label visible-ie8 visible-ie9" id="reqidlable">Select Requisitioner</label>
+
+                                @if (ViewBag.requser != null)
+                                {
+                                    @Html.DropDownListFor(m => m.OriginaterID, ViewBag.requser as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                                    @Html.ValidationMessageFor(m => m.OriginaterID)
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label visible-ie8 visible-ie9">Comments</label>
+                                @Html.TextAreaFor(m => m.Comments, new { @class = "form-control placeholder-no-fix", placeholder = "Comments", id = "unit", @readonly = "readonly" })
+
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label visible-ie8 visible-ie9">Status</label>
+                                @Html.DropDownListFor(m => m.Statusorder, (from UserStatus e in Enum.GetValues(typeof(UserStatus)) select new SelectListItem { Value = e.ToString(), Text = e.ToString() }), "--Select--", new { @class = "form-control" })
+                            </div>
+                        </div>                                       
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9" id="needdatelable">Date Required</label>
+                            @Html.TextBoxFor(m => m.DateReq,new { @class = "form-control", @readonly = "readonly" })
+
+                        </div>                                      
+@*<div class="form-group">
+                                            <label id="filelable"></label>
+                                            @Html.TextBoxFor(m => m.file, new { type = "file", name = "file", @class = "form-control placeholder-no-fix", id = "file" })
+
+                                        </div>*@
+                        <div class="form-actions">
+                            @*<a href="@Url.Action("EditEndUserOrder", "Order", new { id = @Model.ID, E = "D" })" class="btn default btn-xs green-stripe" >Submit</a>*@
+                            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+                        </div>
+                                      
+                    }
+                </div>
+
+                <!-- popup form #2 -->
+                @*                                <a href="#" class="overlay" id="join_form"></a>*@
+                @*   <div class="popup">
+                                    <h2>Sign Up</h2>
+                                    <p>Please enter your details here</p>
+                                    <div>
+                                        <label for="email">Login (Email)</label>
+                                        <input type="text" id="email" value="" />
+                                    </div>
+                                    <div>
+                                        <label for="pass">Password</label>
+                                        <input type="password" id="pass" value="" />
+                                    </div>
+                                    <div>
+                                        <label for="firstname">First name</label>
+                                        <input type="text" id="firstname" value="" />
+                                    </div>
+                                    <div>
+                                        <label for="lastname">Last name</label>
+                                        <input type="text" id="lastname" value="" />
+                                    </div>
+                                    <input type="button" value="Sign Up" />&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;<a href="#login_form" id="login_pop">Log In</a>
+
+                                    <a class="close" href="#close"></a>
+                                </div>*@
+                @*  <div class="btn-group">
+                                    <a class="btn default yellow-stripe dropdown-toggle" href="javascript:;" data-toggle="dropdown">
+                                        <i class="fa fa-share"></i>
+                                        <span class="hidden-480">Tools </span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="javascript:;">Export to Excel </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">Export to CSV </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">Export to XML </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="javascript:;">Print Invoices </a>
+                                        </li>
+                                    </ul>
+                                </div>*@
+            </div>
+        </div>
+        @* <div class="portlet-body">
+                            <div class="table-container">
+                                <div class="table-actions-wrapper">
+                                    <span></span>
+                                    <select class="table-group-action-input form-control input-inline input-small input-sm">
+                                        <option value="">Select...</option>
+                                        <option value="Cancel">Cancel</option>
+                                        <option value="Cancel">Hold</option>
+                                        <option value="Cancel">On Hold</option>
+                                        <option value="Close">Close</option>
+                                    </select>
+                                    <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i>Submit</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>*@
+
+        <!-- End: life time stats -->
+    </div>
+   
+
+</body>
+
+

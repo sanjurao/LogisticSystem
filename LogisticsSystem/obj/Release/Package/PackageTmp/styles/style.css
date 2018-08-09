@@ -1,0 +1,149 @@
+body {
+	background-color: #e2e8f2;
+	color: #161718;
+	text-align: center;
+	font-family: 'Montserrat';
+	width: 80%;
+	margin-left: 10%;
+}
+
+@media  (min-width: 960px) {
+	body {
+		width: 50%;
+		margin-left: 25%;
+	}
+}
+
+h2 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+#container {
+	height: 400px;
+	width: 100%;
+	background-color: #fff;
+	border: 1px #ACB0B5 solid;
+	display: table;
+}
+
+.tablecell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+form {
+	padding: 1em;
+	float: left;
+	color: #fff;
+}
+
+form div {
+	float: left;
+	width: 40%;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+form.primary {
+	background-color: #F36C3D;
+	margin-bottom: 0;
+}
+
+form.secondary {
+	background-color: #FFD1A0;
+	margin-top: 0;
+}
+
+label {
+	float: left;
+	text-transform: capitalize;
+}
+
+input, select {
+	float: right;
+}
+
+.header {
+	margin-top: 3em;
+	float: left;
+	width: 100%;
+}
+
+.sharing {
+	float: left;
+}
+
+.sharing li {
+	margin-right: -20px;
+	margin-top: 5px;
+	float: right;
+}
+
+.footer {
+	float: left;
+	margin-top: 3em;
+	color: #ACB0B5;
+	margin-bottom: 3em;
+	width:;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid #F36C3D;
+}
+
+a:hover {
+	color: #F36C3D;
+}
+
+#submit, #share {
+	margin-top: 2em;
+	width: 60%;
+	margin-left: 20%;
+}
+
+#submit input {
+	background-color: inherit;
+	color: inherit;
+	border: 3px #fff solid;
+	font-family: inherit;
+	font-size: 1em;
+	width: 100%;
+	padding: 0.5em;
+}
+
+#submit input:hover, #share:hover {
+	cursor: hand;
+	border-color: #161718;
+	color: #161718;
+}
+
+#share #link {
+	opacity: 0.5;
+	font-size: 0.8em;
+}
+
+.examples {
+	width: 100%;
+	float: left;
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.examples li {
+	width: 30%;
+	margin: 1.5%;
+	float: left;
+}
+
+.examples img {
+	width: 100%;
+	border: 1px #161718 solid;
+}
+
+.examples img:hover {
+	border-color: #F36C3D;
+	cursor: hand;
+}

@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "ItemDetails";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var item = db.tblItem.Where(x => x.Status == true).ToList();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">Setting <small>Create Item</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Setting </a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li></li>
+                </ul>
+
+            </div>
+             <div class="note note-success">
+                    <p>
+                        @TempData["Msg"]
+                    </p>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <div class="portlet box blue">
+
+
+                        <div class="portlet box blue">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-edit"></i>
+                                    ITEM Table
+                                </div>
+
+                            </div>
+                            <div class="portlet-body">
+                                <a href='@Url.Action("InputItem", "Setting")' class="btn green fancybox setting fancybox.ajax">Add New</a>
+                                <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                                    <div class="table-scrollable">
+                                    </div>
+                                    <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                        <thead>
+                                            <tr>
+                                                <th>#
+                                                </th>
+                                                <th>Name
+                                                </th>
+                                                <th>Description</th>
+                                                <th>U.O.M</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var i in item)
+                                            {
+                                                <tr>
+                                                    <td>@i.Id
+                                                    </td>
+                                                    <td>@i.ItemName
+                                                    </td>
+                                                    <td>@i.ItemDesc</td>
+                                                      <td>@i.UOM</td>
+                                                    <td>
+                                                        <a id="" href="@Url.Action("InputItem", "Setting", new { id = @i.Id })"  class="btn green icon-wrench fancybox setting fancybox.ajax" ></a>
+                                                    </td>
+                                                    <td>
+                                                        <a id="" href="@Url.Action("InputItem", "Setting", new { id = @i.Id, E = "D" })" class="btn red icon-trash"  onclick="return confirm('Are you sure wanat to delete ?')" ></a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+

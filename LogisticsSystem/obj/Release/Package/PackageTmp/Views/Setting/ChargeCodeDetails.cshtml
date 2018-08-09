@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "ChargeCodeDetails";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var item = db.PM_budgettable.ToList();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">Setting <small>Create ChargeCode</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Setting </a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li></li>
+                </ul>
+
+            </div>
+             <div class="note note-success">
+                    <p>
+                        @TempData["Msg"]
+                    </p>
+                </div>
+            <div class="row">
+
+                <!-- BEGIN SAMPLE FORM PORTLET-->
+                <div class="portlet box blue">
+                    <div class="col-md-15">
+                        <div class="portlet box blue">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-edit"></i>
+                                    ChargeCode Table
+                                </div>
+                            </div>
+
+                            <div class="portlet-body">
+                                <a href='@Url.Action("InputChargeCode", "Setting")' class="btn  green fancybox setting fancybox.ajax">Add New</a>
+
+                                <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                                    <div class="col-md-13">
+                                        <div class="table-scrollable">
+
+                                            <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#Charge Code
+                                                        </th>
+                                                        <th>Charge Code Name
+                                                        </th>
+                                                          <th>Discription
+                                                        </th>
+                                                          <th>Email
+                                                        </th>
+                                                        <th>Approval
+                                                        </th>
+                                                         <th>Phone
+                                                        </th>
+                                                        <th>Edit</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var i in item)
+                                                    {
+                                                        <tr>
+                                                            <td>@i.Chargecode
+                                                            </td>
+                                                            <td>@i.Chargecodename
+                                                            </td>
+                                                             <td>@i.Description
+                                                            </td>
+                                                             <td>@i.Email
+                                                            </td>
+                                                             <td>@i.Approval
+                                                            </td>
+                                                             <td>@i.Phone
+                                                            </td>
+                                                            <td>
+                                                                <a id="" href="@Url.Action("InputChargeCode", "Setting", new { id = @i.Chargecode })"  class="btn green icon-wrench fancybox setting fancybox.ajax" ></a>
+                                                            </td>
+                                                            <td>
+
+                                                                <a id="" href="@Url.Action("InputChargeCode", "Setting", new { id = @i.Chargecode, E = "D" })" class="btn red icon-trash"  onclick="return confirm('Are you sure wanat to delete ?')" ></a>
+                                                            </td>
+
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+

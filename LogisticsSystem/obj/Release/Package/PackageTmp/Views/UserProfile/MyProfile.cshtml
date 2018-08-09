@@ -1,0 +1,90 @@
+﻿@model Logistic.Base.Entity.UM_User
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="row margin-top-20">
+                <div class="col-md-12">
+                    <div class="profile-sidebar">
+                        <div class="portlet light profile-sidebar-portlet">
+                            <div class="profile-userpic">
+                                <img src="~/Images/@Model.Image" class="img-responsive" alt="" width="50" height="50" >
+                            </div>
+                            <div class="profile-usertitle">
+                                <div class="profile-usertitle-name">
+                                    @Model.FirstName
+                                </div>
+                                <div class="profile-usertitle-job">
+                                    @Model.UserType
+                                </div>
+                            </div>
+                            <div class="profile-userbuttons">
+                                @Html.ActionLink("Message", "Message", "Order", null, new { @class = "btn btn-circle btn-danger btn-sm" })
+                            </div>
+                            <br />
+                            <div class="profile-usermenu">
+                                <ul class="nav">
+                                    <li class="active">
+                                        <i class="icon-home"></i>
+                                        Home &nbsp
+                                            <span><i>@Html.ActionLink("Edit Profile", "EditProfile", null, new { @class = "btn btn-circle green-haze btn-sm" })</i></span>
+                                    </li>
+                                </ul>
+                                <br />
+                                <table class="table table-striped table-hover table-bordered">
+                                    <tr>
+                                        <td>First Name:</td>
+                                        <td>@Model.FirstName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name:</td>
+                                        <td>@Model.LastName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Name:
+                                        </td>
+                                        <td>@Model.UserName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password:
+                                        </td>
+                                        <td>@Model.Password</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone:</td>
+                                        <td>@Model.PhoneNumber</td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Type
+                                        </td>
+                                        <td>@Model.UserType</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email
+                                        </td>
+                                        <td>@Model.Email</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Gender
+                                        </td>
+                                        <td>@Model.Gender</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address
+                                        </td>
+                                        <td>@Model.Address</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

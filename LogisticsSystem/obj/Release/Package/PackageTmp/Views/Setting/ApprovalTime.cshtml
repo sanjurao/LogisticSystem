@@ -1,0 +1,72 @@
+﻿@model Logistic.Base.Entity.tblApprovalTime
+@{
+    ViewBag.Title = "ApprovalTime";
+    Layout = "~/Views/Shared/Blank.cshtml";
+}
+
+<script src="~/js/jquery-1.11.3.min.js"></script>
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">Add Approval Time</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div>
+                    <label>Approval Time</label>
+                    @Html.TextBoxFor(m => m.ApprovalTime, new { @class = "form-control timepicker timepicker-24", id = "Code" })
+                </div>
+
+               
+            </div>
+                  
+            <div class="form-group">
+                <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#btnSubmit').click(function (e) {
+                validateForm(e);
+            });
+
+            function validateForm(e) {
+                var Name = $('#Code').val();
+                var Code = $('#Name').val();
+                //var ShortDescription = $('#ShortDescription').val();
+
+
+                var inputVal = new Array(Name, Code);
+
+                var inputMessage = new Array("Category Code", "Category Name");
+
+                $('.error').hide();
+
+                if (inputVal[0] == "") {
+                    e.preventDefault()
+                    $('#Code').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                    return false;
+                }
+                if (inputVal[1] == "") {
+                    e.preventDefault()
+                    $('#Name').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                    return false;
+                }
+                    //if (inputVal[2] == "") {
+                    //    e.preventDefault()
+                    //    $('#ShortDescription').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[2] + '</span>');
+                    //    return false;
+                    //}
+                else {
+                    return true;
+                }
+            }
+
+        });
+    </script>
+</div>
+
+

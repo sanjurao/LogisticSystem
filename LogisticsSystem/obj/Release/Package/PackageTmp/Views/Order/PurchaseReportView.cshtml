@@ -1,0 +1,215 @@
+﻿@{
+    ViewBag.Title = "PurchaseReportView";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    int id = Convert.ToInt32(ViewBag.id);
+    var data = db.PM_Order.Where(x => x.ID == id).FirstOrDefault();
+    var conname = db.Users.Where(x => x.Id == data.Consolidator).Select(x => x.FirstName).FirstOrDefault();
+    var supname = db.Users.Where(x => x.Id == data.SupplierID).Select(x => x.FirstName).FirstOrDefault();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-gift"></i>Purchase Order Report
+                    </div>
+                    <div class="tools">
+											<a href="javascript:;" class="collapse" data-original-title="" title="">
+											</a>
+											<a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
+											</a>
+											<a href="javascript:;" class="reload" data-original-title="" title="">
+											</a>
+											<a href="javascript:;" class="remove" data-original-title="" title="">
+											</a>
+										</div>
+                </div>
+                <div class="portlet-body form">
+                    <!-- BEGIN FORM-->
+                    <form class="form-horizontal" role="form">
+                        <div class="form-body">
+
+                            <h3 class="form-section">Order Info</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Consolidter Name:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @conname
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Supplier Name:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @supname
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Discription:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Date Of Create:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.CreatedDate
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Date Of Need:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.NeedByDate
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Due Date</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.DueDate
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Theme:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.Theme
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">KPI:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.KPI
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Call Off:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.Calloff
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>                                  
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">MSD_PO</label>
+                                        
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.MSD_PO
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Lead Time:</label>
+                                        
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.LeadTime
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Chargecode:</label>
+                                        
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @data.Chargecode
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                               
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Status:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">
+                                                @if (data.Status!=null)
+                                                {
+                                                    <span class="label label-sm label-success">@data.Status   </span>
+                                                    
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-sm label-default">Blocked </span>
+                                                }
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                           
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <a href="@Url.Action("PurchaseReport", "Order")" class="btn default btn-xs green-stripe">Back </a>
+                                        @*    <button type="button" class="btn default">Back</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

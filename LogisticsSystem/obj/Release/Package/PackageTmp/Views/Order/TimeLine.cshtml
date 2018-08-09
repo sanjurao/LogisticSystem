@@ -1,0 +1,142 @@
+﻿@model Logistic.Base.Entity.tblcomment
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "TimeLine";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var item = db.PM_Order.ToList();
+    var po = db.PM_Order.Select(x => x.MSD_PO).FirstOrDefault();
+    int id = Convert.ToInt32(User.Identity.GetUserId());
+    
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h1>TimeLine.........</h1>
+            @foreach (var i in item)
+            {
+                var timeline = db.tblTimeline.Where(x => x.PONo == i.MSD_PO).ToList();
+
+                foreach (var j in timeline)
+                {
+                    //var uname = db.Users.Where(x => x.Id == j.UserId).Select(x => x.UserType).FirstOrDefault();
+                    var UserName = db.Users.Where(x => x.Id == j.UserId).Select(x => x.UserType).FirstOrDefault();
+                    var UserImage = db.Users.Where(x => x.Id == j.UserId).Select(x => x.Image).FirstOrDefault();
+                    //var usertype = db.Users.Where(x => x.Id == j.UserId).Select(x => x.UserType).FirstOrDefault();
+                    //var cooment = db.tblcomment.Where(x => x.UserId == j.UserId).ToList().Take(4);
+                    var cooment = (from cData in db.tblcomment
+                                   where cData.UserId == j.UserId && cData.CommentOn == j.PONo
+                                   orderby cData.ID descending
+                                   select cData).Take(4).ToList();
+                    var cooment1 = (from cData in cooment
+                                    orderby cData.commentdate ascending
+                                    select cData);
+                    //var commentby = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.UserType).FirstOrDefault();
+                    var image = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.Image).FirstOrDefault();
+                    //var desc = db.tblTimeline.Where(x => x.PONo == j.PONo && x.UserId==id).Select(x => x.OrderDescription).ToList();                  
+                    //string type = db.Users.Where(x => x.Id == id).Select(x => x.UserType).FirstOrDefault();
+                    //var Notificationdata = db.tblTimeline.Where(x => x.UserId == id && x.NotificationFromValue != null && x.PONo == i.ID.ToString()).ToList();
+                    
+                <div class="timeline">
+
+
+                    <!-- TIMELINE ITEM -->
+                    <div class="timeline-item">
+                        @if (UserImage != null)
+                        {
+                            <div class="timeline-badge">
+                                <img class="timeline-badge-userpic" src="~/Images/@UserImage">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="timeline-badge">
+                                <img src="~/Images/default_user_icon.png" class="timeline-badge-userpic" />
+                            </div>
+                            
+                        }
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow">
+                            </div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    @*  <h4><b>@uname</b></h4>*@
+                                </div>
+                                <br />
+                                <div class="timeline-body-content">
+                                    @*  @desc*@
+                                </div>
+                                @* @if (usertype == type)
+                                {
+                                    foreach (var n in Notificationdata)
+                                    {
+                                        var ordernotification = db.tblTimeline.Where(x => x.PONo == n.PONo).Select(x => x.PONo).FirstOrDefault();
+                                        if (n.PONo ==i.ID.ToString())
+                                        {
+                                    <div class="timeline-body-content">
+                                        <label style="margin-left: 10px">@n.NotificationFromValue</label><br />
+                                        <span style="margin-left: 10px" class="font-grey-cascade">@n.NotificationContent </span>
+                                        <br />
+                                        <label style="margin-left: 10px">@n.NotificationCreatedDate</label>
+                                    </div>
+                                        }
+                                    }
+                                }*@
+
+                                @foreach (var k in cooment1)
+                                {
+                                    int Id = Convert.ToInt32(k.CommentBy);
+                                    var Commentimage = db.Users.Where(x => x.Id == Id).Select(x => x.Image).FirstOrDefault();
+                                    var commentby = db.Users.Where(x => x.Id == Id).Select(x => x.FirstName).FirstOrDefault();
+                                    <div class="timeline-body-content">
+                                        @if (Commentimage != null)
+                                        {
+                                            <img src="~/Images/@Commentimage" style="height:30px;width:30px;float:left" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Images/default_user_icon.png" style="height: 30px; width: 30px; float: left" />
+                                        }
+                                        <label style="margin-left: 10px">@commentby</label><br />
+                                        <span style="margin-left: 10px" class="font-grey-cascade">@k.commentdata </span>
+                                        <br />
+                                        <label style="margin-left: 10px">@k.commentdate</label>
+                                    </div>
+                                }
+                            </div>
+
+
+                            @using (Html.BeginForm("Timeline", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                     
+                               
+                                <div>
+                                    @if (image != null)
+                                    {
+                                        <img src="~/Images/@image" style="height:35px;width:35px;float:left" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Images/default_user_icon.png" style="height: 35px; width: 35px; float: left" />
+                                    }
+                                    <div style="float: left">
+                                        @Html.TextBoxFor(m => m.commentdata, new { @class = "form-control", style = "width:700px;margin-left: 20px", placeholder = "Write your comment......", id = "file" })
+                                        @Html.Hidden("id", j.UserId)
+                                        @Html.Hidden("OrderId", j.PONo)
+                                    </div>
+                                    <div style="float: right">
+                                        <input type="submit" value="Post" id="btnSubmit" class="btn red" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                }
+            }
+        </div>
+    </div>
+</body>
+
+

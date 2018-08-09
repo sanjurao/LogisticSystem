@@ -1,0 +1,270 @@
+﻿@using Logistic.Base.Enums
+
+@model Logistic.Base.Entity.PM_Order
+@{
+    ViewBag.Title = "RequitionerOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var dditem = db.tblItem.ToList();
+    int id = Convert.ToInt32(ViewBag.PID);
+    var item = db.tblStock.Where(x => x.PMOrderId == id).ToList();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">Orders <small>orders listing</small>
+            </h3>
+            <div class="row">
+                <div class="col-md-12 ">
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-gift"></i>Requitioner Order View
+                            </div>
+
+                        </div>
+                        <div class="portlet-body form">
+                            <div role="form">
+                                <div class="form-body">
+                                    @using (Html.BeginForm("RequitionerOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {                     
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                        @Html.HiddenFor(m => m.CreatedDate)
+                                        @Html.HiddenFor(m => m.ReqUID)
+                                        @Html.HiddenFor(m => m.SupplierID)
+                                        @Html.HiddenFor(m => m.Consolidator)
+                                        @Html.HiddenFor(m => m.EndUserId)
+                                        @Html.HiddenFor(m => m.OrgUID)
+                                        <div>
+                                            <label>MSD PO No.</label>
+                                            @Html.TextBoxFor(m => m.MSD_PO, null, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+                                        <div>
+                                            <label>ORA PO No.</label>
+                                            @Html.TextBoxFor(m => m.ORAPoNumber, null, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+                                        <div>
+                                            <label>Requisitioner:</label>
+                                            @if (ViewBag.requser != null)
+                                            {
+                                                @Html.DropDownListFor(m => m.ReqUID, ViewBag.requser as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                                                   
+                                            }
+
+                                        </div>
+
+                                        <div>
+                                            <label>End User:</label>
+                                            @if (ViewBag.EndUser != null)
+                                            {
+                                                @Html.DropDownListFor(m => m.EndUserId, ViewBag.EndUser as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                                               
+                                            }
+
+                                        </div>
+                                        <div>
+                                            <label>Originator:</label>
+                                            @if (ViewBag.Originator != null)
+                                            {
+                                                @Html.DropDownListFor(m => m.OrgUID, ViewBag.Originator as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                                               
+                                            }
+
+                                        </div>
+
+                                        <div>
+                                            <label>Consolidator:</label>
+                                            @if (ViewBag.consol != null)
+                                            {
+                                                @Html.DropDownListFor(m => m.Consolidator, ViewBag.consol as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                                                @Html.ValidationMessageFor(m => m.Consolidator, null, new { style = "color: red" })
+                                            }
+
+                                        </div>
+                                        <div>
+                                            <label>Supplier:</label>
+                                            @if (ViewBag.supplier != null)
+                                            {
+                                                @Html.DropDownListFor(m => m.SupplierID, ViewBag.supplier as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })                       
+                                            }
+
+
+                                        </div>
+                                        <div>
+                                            <label>Approval Time:</label>
+                                            @Html.TextBoxFor(m => m.ApprovalTime, new { @class = "form-control", id = "MOT", @readonly = "readonly" })
+
+                                        </div> 
+                                        <div>
+                                            <label>MOT</label>
+                                            @Html.TextBoxFor(m => m.MOT, new { @class = "form-control", id = "MOT", @readonly = "readonly" })
+                                        </div> 
+                                        <div>
+                                            <label>Uploaded File:</label>
+                                            @Html.TextBoxFor(m => m.pdffile, new { @class = "form-control placeholder-no-fix", @readonly = "readonly" })
+                                        </div>
+                                        <div>
+                                            <label>Discription:</label>
+                                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Product Discription", @readonly = "readonly" })
+                                        </div>                                        
+                                        <div>
+                                            <label>Theam:</label>
+                                            @Html.TextBoxFor(m => m.Theme, new { @class = "form-control", placeholder = "Theam", @readonly = "readonly" })
+                                        </div>
+                                        <div>
+                                            <label>K.P.I:</label>
+                                            @Html.TextBoxFor(m => m.KPI, new { @class = "form-control", placeholder = "Enter K.P.I", @readonly = "readonly" })
+                                        </div>
+                          
+                                        <div>
+                                            <label>Need By Date:</label>
+                                            @Html.TextBoxFor(m => m.NeedByDate, new { type = "text", @class = "date-picker form-control", id = "needbydate", @readonly = "readonly" })
+                                        </div>
+
+                                        <div>
+                                            <label>Charge Code:</label>
+                                            @Html.TextBoxFor(m => m.Chargecode, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+                                        <div>
+                                            <label>Status:</label>
+                                            @Html.DropDownListFor(m => m.Status, (from Status e in Enum.GetValues(typeof(Status)) select new SelectListItem { Value = e.ToString(), Text = e.ToString() }), "--Select--", new { @class = "form-control" })<br />
+                                        </div>
+                                        <div>
+                                            <label>Received By:</label>
+                                            @Html.TextBoxFor(m => m.RecevedBy, new { @class = "form-control", placeholder = "Received By" })
+                                        </div>
+
+                                        <div style="float: left; margin-left: 100px">
+                                            <label>Call-Off: </label>
+                                            @Html.CheckBoxFor(m => m.Calloff, new { @readonly = "readonly" })<br />
+                                            <br />
+                                        </div>
+                                        <div style="margin-left: 500px">
+                                            <label>LeadTime:</label>
+                                            @Html.TextBoxFor(m => m.LeadTime, new { id = "LeadTime", @readonly = "readonly" })<br />
+                                            <br />
+                                            <label>DueDate:</label>
+                                            @Html.TextBoxFor(m => m.DueDate, new { id = "DueDate", @readonly = "readonly" })
+                                        </div>
+                                        <div class="portlet box purple">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-cogs"></i>Add Items
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+                                                    <a href="javascript:;" class="reload" data-original-title="" title=""></a>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="table-responsive">
+                                                    <table id="myTable" class="table">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Product</th>
+                                                            <th>Total Quantity</th>
+                                                            <th>QuntOrdered</th>
+                                                            <th>QuntShipped</th>
+                                                            <th>QuntLeft</th>
+                                                            <th>UnitValue</th>
+                                                            <th>AdditionalCost</th>
+                                                            <th>Call Off Date</th>
+                                                            <th>TotalValue</th>
+
+
+                                                        </tr>
+                                                        @foreach (var i in item)
+                                                        {
+                                                            var itemname = db.tblItem.Where(x => x.Id == i.ItemId).Select(x => x.ItemName).FirstOrDefault();
+                                                            <tr>
+                                                                <td>@i.tblStockId @Html.Hidden("SId", i.tblStockId)</td>
+                                                                <td>
+                                                                    <input type="text" id="txtitemname" size="10" value=" @itemname" name="txtitemname" class="ItemName" readonly="true"/>
+                                                                    @Html.Hidden("ItemId", i.ItemId)
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txttotalQty" size="10" value="  @i.TotalQty" name="txttotalQty" class="TotalQty" readonly="true"  />
+
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtQuntOrdered" size="10" value="  @i.QuntOrdered" name="txtQuntOrdered" class="QuntOrdered" readonly="true"  />
+
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtQuntShipped" size="10" name="txtQuntShipped" value="@i.QuntShipped" class="QuntShipped" readonly="true"/>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtQuntLeft" size="10" name="txtQuntLeft" value="@i.QuntLeft" class="QuntLeft" readonly="true"  />
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtUnitValue" size="10" name="txtUnitValue" value="@i.UnitValue" class="UnitValue" readonly="true"  />
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtAdditionalCost" size="10" name="txtAdditionalCost" value="@i.AdditionalCost" class="AdditionalCost" />
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtCallOffDate" size="10" name="txtCallOffDate" value="@i.CallOffDate" class="CallOffDate" readonly="true"/>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="txtTotalValue" size="10" value="@i.TotalValue" name="txtTotalValue" class="TotalValue" readonly="true"  />
+                                                                </td>
+
+
+                                                            </tr>
+                                                        }
+                                                        <tfoot>
+                                                        </tfoot>
+
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <br />
+                                        <div align="right">
+                                            <input type="submit" class="btn green" value="Submit" />
+                                        </div>
+                                    }
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div> 
+  
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ctr = 1;
+            var sum = 0;
+            $(".QuntShipped,.UnitValue,.AdditionalCost").live("change", function () {
+                var item_QuntShipped = parseInt($(this).parents("tr").find(".QuntShipped").val());
+                var Unitvalue = parseFloat($(this).parents("tr").find(".UnitValue").val());
+
+                var AdditionalCast = parseFloat($(this).parents("tr").find(".AdditionalCost").val());
+
+                var TotalPrice = ((item_QuntShipped * Unitvalue) + (AdditionalCast)).toFixed(2);
+
+                console.info(item_QuntShipped, Unitvalue, AdditionalCast, TotalPrice);
+
+                if (!isNaN(TotalPrice))
+                    $(this).parents("tr").find(".TotalValue").val(TotalPrice);            
+                });
+               //$("#sum").html(sum.toFixed(2));
+
+            });
+          
+    </script>
+</body>
+

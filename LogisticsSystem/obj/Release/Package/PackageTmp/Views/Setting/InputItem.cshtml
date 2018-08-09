@@ -1,0 +1,75 @@
+﻿@model Logistic.Base.Entity.tblItem
+@{
+    ViewBag.Title = "InputItem";
+    Layout = "~/Views/Shared/Blank.cshtml";
+}
+<script src="~/js/jquery-1.11.3.min.js"></script>
+
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">Input Item</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label>Item Name.</label>
+                @Html.TextBoxFor(m => m.ItemName, null, new { @class = "form-control" ,id="ItemName"})
+
+            </div>
+            <div class="form-group">
+                <label>Item Description.</label>
+                @Html.TextBoxFor(m => m.ItemDesc, null, new { @class = "form-control",id="ItemDesc" })
+
+            </div>  
+            <div class="form-group">
+                <label>U.O.M</label>
+                @Html.TextBoxFor(m => m.UOM, null, new { @class = "form-control" ,id="UOM"})
+
+            </div> 
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" id="Search" />
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#Search').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var ItemName = $('#ItemName').val();
+            var ItemDesc = $('#ItemDesc').val();
+            var UOM = $('#UOM').val();           
+
+            var inputVal = new Array(ItemName, ItemDesc, UOM);
+
+            var inputMessage = new Array("Item Name", "Description", "U.O.M");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#ItemName').after('<span style="color:red" class="error"> Please enter ' + inputMessage[0] + '</span>');
+                return false;
+            }
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#ItemDesc').after('<span style="color:red" class="error"> Please enter ' + inputMessage[1] + '</span>');
+                return false;
+            }
+            if (inputVal[2] == "") {
+                e.preventDefault()
+                $('#UOM').after('<span style="color:red" class="error"> Please enter ' + inputMessage[2] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>

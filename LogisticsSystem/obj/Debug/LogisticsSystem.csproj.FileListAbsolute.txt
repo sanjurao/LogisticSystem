@@ -1,0 +1,626 @@
+D:\Project\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+D:\Project\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+D:\Project\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Owin.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+D:\Project\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+D:\Project\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+D:\Project\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+D:\Project\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+D:\Project\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Owin.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+D:\NewLogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Owin.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+C:\06-08-2015 logistic\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Owin.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+D:\17-08-2015\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+D:\17-08-2015\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+D:\17-08-2015\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Owin.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+C:\Logistic\17-08-2015\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll.config
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Owin.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.pdb
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.pdb
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.pdb
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+D:\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+D:\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+D:\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll.config
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Owin.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.pdb
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.pdb
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.pdb
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+C:\Users\MD1\Desktop\LogisticSystem\old\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll.config
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Owin.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.pdb
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.pdb
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.pdb
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Net.Http.Formatting.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Http.WebHost.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+C:\Users\MD4\Desktop\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll.config
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Owin.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.pdb
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.pdb
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.pdb
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+C:\D\Personal\Freelancing\Fabiyi 2\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll.config
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\LogisticSystem.pdb
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Web.XmlTransform.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\NuGet.Core.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Owin.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Cors.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Logistic.Base.pdb
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.pdb
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.pdb
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Common.Logging.Core.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\EntityFramework.SqlServer.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Core.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Cors.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Cookies.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Facebook.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.Google.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Microsoft.Owin.Security.OAuth.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Newtonsoft.Json.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.pdb
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\Quartz.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Helpers.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Mvc.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.Razor.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Deployment.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\bin\System.Web.WebPages.Razor.xml
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticsSystem.csprojResolveAssemblyReference.cache
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.dll
+D:\WORKFOLDER\TERABHYTE\CLIENTS\MRC\LMS\LogisticSystem\LogisticSystem\LogisticSystem\obj\Debug\LogisticSystem.pdb

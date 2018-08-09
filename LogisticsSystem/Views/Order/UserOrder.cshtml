@@ -1,0 +1,93 @@
+﻿@model LogisticsSystem.Models.OrderViewModel
+@{
+    ViewBag.Title = "UserOrder";
+    Layout = "~/Views/Shared/Blank.cshtml";
+}
+<script src="~/js/jquery-1.11.3.min.js"></script>
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">End User Order</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm("UserOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div>
+                    <label>Select Requisitioner</label>
+                    @if (ViewBag.requser != null)
+                    {
+                        @Html.DropDownListFor(m => m.RequisitionerId, ViewBag.requser as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", id = "reqid" })
+                                                   
+                    }
+                </div>
+                <div>
+                    <label>Comments</label>
+                    @Html.TextAreaFor(m => m.Comments, new { @class = "form-control placeholder-no-fix", placeholder = "Comments", id = "comment" })
+
+                </div>
+                <div>
+                    <label>Date Required</label>
+                    @Html.TextBoxFor(m => m.DateRequired, new { type = "Date", name = "DateReq", @class = "form-control placeholder-no-fix ", id = "reqDate" })
+                </div>
+                <div>
+                    <label></label>
+                    @Html.TextBoxFor(m => m.file, new { type = "file", name = "file", @class = "form-control placeholder-no-fix", id = "file" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="Search" class="btn btn-primary" />
+            </div>
+           
+        }
+    </div>
+</div>
+<script type="text/javascript" src="../../js/bootstrap-datetimepicker.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#Search').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var Reqid = $('#reqid').val();
+            var comment = $('#comment').val();
+            var reqdate = $('#reqDate').val();
+            var file = $('#file').val();
+
+            var inputVal = new Array(Reqid, comment, reqdate, file);
+
+            var inputMessage = new Array("Req id", "Comment", "Required date", "File type");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#reqid').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                return false;
+            }
+
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#comment').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                return false;
+            }
+
+            if (inputVal[2] == "") {
+                e.preventDefault()
+                $('#reqDate').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[2] + '</span>');
+                return false;
+            }
+
+            if (inputVal[3] == "") {
+                e.preventDefault()
+                $('#file').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[3] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>

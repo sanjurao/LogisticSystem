@@ -1,0 +1,240 @@
+﻿@model LogisticsSystem.Models.OrderViewModel
+@{
+    ViewBag.Title = "CreatePO";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var item = db.PM_UserOrder.Where(x => x.Status == false).ToList();
+    var itemdata = db.PM_UserOrder.ToList();
+}
+}
+
+<h2>CreatePO</h2>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<link href="../../Content/themes/base/Pop1.css" rel="stylesheet" />
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <h3 class="page-title">Orders <small>orders listing</small>
+            </h3>
+            <div class="row">
+                <div class="col-md-12">
+                       <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-edit"></i>End User Order
+                            </div>
+
+                        </div>
+                        <div class="portlet-body">
+                            <a href='@Url.Action("UserOrder", "Order")' class="btn  green fancybox setting fancybox.ajax">Add New</a>
+                            <div id="sample_editable_2_wrapper" class="dataTables_wrapper no-footer">
+                                <div class="table-scrollable">
+                                </div>
+                                <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_2" role="grid" aria-describedby="sample_editable_2_info">
+                                    <thead>
+                                        <tr>
+                                            <th>User ID
+                                            </th>
+                                            <th>Comments
+                                            </th>
+                                            <th>Date Required
+                                            </th>
+                                            <th>Originater
+                                            </th>
+                                            <th>File
+                                            </th>
+                                            <th>Status
+                                            </th>
+                                            <th>Action
+                                            </th>
+                                            <th>Create Order</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (ViewBag.data != null)
+                                        {
+                                            foreach (var items in item)
+                                            {
+                                            <tr>
+                                                <td>
+                                                    @items.UserID
+                                                </td>
+                                                <td>
+                                                    @items.Comments
+                                                </td>
+                                                <td>
+                                                    @items.DateReq
+                                                </td>
+                                                <td>
+                                                    @items.OriginaterID
+                                                </td>
+                                                <td>
+                                                    @items.PdfFileGuid
+                                                </td>
+                                                <td>
+                                                    @if (items.IsActive == true)
+                                                    {
+                                                        <span class="label label-sm label-success">Approved   </span>
+                                                    
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-sm label-default">Pending </span>
+                                                    }
+
+                                                </td>
+                                                @*   <td>
+                                                    <a id="" href="@Url.Action("UserOrder", "Order", new { id = @items.ID })"  class="fancybox setting fancybox.ajax" >Edit<i class="fa fa-edit"></i> </a>
+                                                </td>*@
+                                                <td>
+                                                    @Html.ActionLink("Delete", "Delete", "Order", new { id = items.ID }, new { @class = "btn red" })
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Create Order", "Send", new { Uid = items.ID }, new { @class = "btn green" })
+                                                </td>
+                                            </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
+                </div>
+                <div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-edit"></i>Sent Order
+                            </div>
+
+                        </div>
+                        <div class="portlet-body">
+
+                            <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+
+                                <div class="table-scrollable">
+                                </div>
+                                <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
+                                    <thead>
+                                        <tr>
+                                            <th>User ID
+                                            </th>
+                                            <th>Comments
+                                            </th>
+                                            <th>Date Required
+                                            </th>
+                                            <th>Originater
+                                            </th>
+                                            <th>File
+                                            </th>
+                                            <th>Status
+                                            </th>
+
+                                            <th>Report View</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var j in itemdata)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @j.UserID
+                                                </td>
+                                                <td>
+                                                    @j.Comments
+                                                </td>
+                                                <td>
+                                                    @j.DateReq
+                                                </td>
+                                                <td>
+                                                    @j.OriginaterID
+                                                </td>
+                                                <td>
+                                                    <a href="@Url.Action("Download", "Order", new { fileName = @j.PdfFileGuid })" target="_blank">@j.PdfFileGuid</a>
+                                                </td>
+                                                <td>
+                                                    @if (j.Statusorder != null)
+                                                    {
+                                                        <span class="label label-sm label-success">Approved   </span>
+                                                    
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-sm label-default">Pending </span>
+                                                    }
+
+                                                </td>
+
+                                                <td><a href="@Url.Action("ReportView", "Order", new { id = @j.ID })" class="btn green">View </a></td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+    </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#btnSubmit').click(function (e) {
+                validateForm(e);
+            });
+
+            function validateForm(e) {
+                var Reqid = $('#reqid').val();
+                var comment = $('#comment').val();
+                var reqdate = $('#reqDate').val();
+                var file = $('#file').val();
+
+                var inputVal = new Array(Reqid, comment, reqdate, file);
+
+                var inputMessage = new Array("Req id", "Comment", "Required date", "File type");
+
+                $('.error').hide();
+
+                if (inputVal[0] == "") {
+                    e.preventDefault()
+                    $('#reqid').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                    return false;
+                }
+
+                if (inputVal[1] == "") {
+                    e.preventDefault()
+                    $('#comment').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                    return false;
+                }
+
+                if (inputVal[2] == "") {
+                    e.preventDefault()
+                    $('#reqDate').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[2] + '</span>');
+                    return false;
+                }
+
+                if (inputVal[3] == "") {
+                    e.preventDefault()
+                    $('#file').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[3] + '</span>');
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+        });
+    </script>
+</body>
+

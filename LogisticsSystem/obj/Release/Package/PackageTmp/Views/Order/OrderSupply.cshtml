@@ -1,0 +1,108 @@
+﻿@model Logistic.Base.Entity.PM_Supply
+
+@using Logistic.Base.Enums
+@{
+    ViewBag.Title = "OrderSupply";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<script src="~/Scripts/jquery.js"></script>    
+<script src="~/Scripts/jquery.validate.js"></script>    
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title"><b>Order Supply </b>
+            </h3>
+            @using (Html.BeginForm("OrderSupply", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {   
+                @Html.ValidationSummary(true)                                 
+@*<div class="form-group">
+                    <label class="control-label">PO ID:</label>
+                    @Html.TextBoxFor(m => m.POID, new { @class = "form-control", placeholder = "POID" })
+
+                </div>*@
+                <div >
+                    <label class="control-label">PO Number:</label>
+                    @Html.TextBoxFor(m => m.ORAPoNumber, new { @class = "form-control", placeholder = "PONumber",@readonly="readonly" })
+                    @Html.ValidationMessageFor(m => m.ORAPoNumber)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Converted Date:</label>
+                    @Html.TextBoxFor(m => m.converted, new { @class = "form-control date-picker", placeholder = "Converted" })
+                    @Html.ValidationMessageFor(m => m.converted)
+                </div>              
+                <div class="form-group">
+                    <label class="control-label">Agility Date:</label>
+                    @Html.TextBoxFor(m => m.Agility, new { @class = "form-control date-picker", placeholder = "Agility" })
+                    @Html.ValidationMessageFor(m => m.Agility)
+                </div> 
+                                        
+                <div class="form-group">
+                    <label class="control-label">Shipped Date:</label>
+                    @Html.TextBoxFor(m => m.Shipped, new { @class = "form-control date-picker", placeholder = "Shipped" })
+                    @Html.ValidationMessageFor(m => m.Shipped)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Recieved Date:</label>
+                    @Html.TextBoxFor(m => m.Received, new { @class = "form-control date-picker", placeholder = "Recieved" })
+                    @Html.ValidationMessageFor(m => m.Received)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Purchasing: </label>
+                    @Html.TextBoxFor(m => m.Purchasing, new { @class = "form-control", placeholder = "Purchasing" })
+                    @Html.ValidationMessageFor(m => m.Purchasing)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">lead time: </label>
+                    @Html.TextBoxFor(m => m.leadtime, new { @class = "form-control", placeholder = "leadtime" })
+                    @Html.ValidationMessageFor(m => m.leadtime)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Due Date:</label>
+                    @Html.TextBoxFor(m => m.DueDate, new { @class = "form-control date-picker", placeholder = "DueDate" })
+                    @Html.ValidationMessageFor(m => m.DueDate)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">IsComplete Delivery:</label>
+                    @Html.TextBoxFor(m => m.IsCompleteDelivery, new { @class = "form-control", placeholder = "IsCompleteDelivery" })
+                    @Html.ValidationMessageFor(m => m.IsCompleteDelivery)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">IsPartial Delivery:</label>
+                    @Html.TextBoxFor(m => m.IsPartialDelivery, new { @class = "form-control", placeholder = "IsPartialDelivery" })
+                    @Html.ValidationMessageFor(m => m.IsPartialDelivery)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Direct Payment:</label>
+                    @Html.TextBoxFor(m => m.DirectPayment, new { @class = "form-control", placeholder = "DirectPayment" })
+                    @Html.ValidationMessageFor(m => m.DirectPayment)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">IsReject OR Cancel:</label>
+                    @Html.TextBoxFor(m => m.IsRejectORCancel, new { @class = "form-control", placeholder = "IsRejectORCancel" })
+                    @Html.ValidationMessageFor(m => m.IsRejectORCancel)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Way BillNo:</label>
+                    @Html.TextBoxFor(m => m.WayBillNo, new { @class = "form-control", placeholder = "WayBillNo" })
+                    @Html.ValidationMessageFor(m => m.WayBillNo)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">Expected Date:</label>
+                    @Html.TextBoxFor(m => m.ExpectedDate, new { @class = "form-control date-picker", placeholder = "ExpectedDate" })
+                    @Html.ValidationMessageFor(m => m.ExpectedDate)
+                </div> 
+                <div class="form-group">
+                    <label class="control-label">M.O.T:</label>
+                    @Html.DropDownListFor(m => m.MOT, (from MOT e in Enum.GetValues(typeof(MOT)) select new SelectListItem { Text = e.ToString() }), "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MOT)
+                </div> 
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn green" />
+                </div>         
+            }
+        </div>
+
+    </div>
+</body>

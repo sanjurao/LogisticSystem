@@ -1,0 +1,75 @@
+﻿@model Logistic.Base.Entity.tblSupplier
+@using Logistic.Base.DataContext
+@{
+    ViewBag.Title = "LeadTime";
+    Layout = "~/Views/Shared/Blank.cshtml";
+    LogisticsConnection db = new LogisticsConnection();
+}
+
+<script src="~/js/jquery-1.11.3.min.js"></script>
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">Lead Time</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x=>x.SupplierID)
+            <div class="form-group">                
+                <label>Sepplier</label>
+                @if(ViewBag.supplierName !=null)
+                {
+                @Html.DropDownListFor(m => m.SupplierName, ViewBag.supplierName as IEnumerable<SelectListItem>, "--Select Supplier--", new { @class = "form-control", id = "Name" })
+                }
+                else
+                {
+                @Html.TextBoxFor(x => x.SupplierName, new {@class = "form-control",@readonly="readonly" })
+                }
+            </div>    
+            <div class="form-group">
+                <label>Lead Time</label>
+                @Html.TextBoxFor(m => m.LeadTime, new { @class = "form-control", id = "Duration" })
+
+            </div>
+                  
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" id="Search" />
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#Search').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var Name = $('#Name').val();
+            var Duration = $('#Duration').val();
+
+            var inputVal = new Array(Name, Duration);
+
+            var inputMessage = new Array("Supplier", "Lead Time");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#Name').after('<span style="color:red" class="error"> Please Select ' + inputMessage[0] + '</span>');
+                return false;
+            }
+
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#Duration').after('<span style="color:red" class="error"> Please enter ' + inputMessage[1] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>

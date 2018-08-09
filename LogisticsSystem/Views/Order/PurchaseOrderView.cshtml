@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "RequitionerPurchaseOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    var sendlist1 = db.PM_Order.Where(x => x.Close == true).ToList().OrderByDescending(x => x.CreatedDate);
+    var sendlist = db.PM_Order.Where(x => x.Close == false).ToList().OrderByDescending(x => x.CreatedDate);
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            PO View
+                        </div>
+                        <div class="actions">
+                            <a href="../../Order/PurchaseOrder" class="btn red">
+                                <span class="hidden-480">Back</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_2" role="grid" aria-describedby="sample_editable_1_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									 ORAPO No.
+								: activate to sort column ascending"
+                                            style="width: 161px;">
+                                            ORAPO No.
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									  MSDPO No.
+								: activate to sort column ascending"
+                                            style="width: 161px;">
+                                            MSDPO No.
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Created Date
+								: activate to sort column ascending"
+                                            style="width: 205px;">
+                                            Created Date
+                                        </th>
+                                        @*<th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Theme
+								: activate to sort column ascending"
+                                            style="width: 109px;">
+                                            Theme
+                                        </th>*@
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Supplier
+								: activate to sort column ascending"
+                                            style="width: 140px;">
+                                            Supplier
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Expected date
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Expected date
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Call Off Status
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Call Off Status
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 pdf
+								: activate to sort column ascending"
+                                            style="width: 112px;">
+                                            pdf
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									   Location
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Location
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Status
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Status
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Edit
+								: activate to sort column ascending"
+                                            style="width: 112px;">
+                                            Edit
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in sendlist)
+                                    {
+                                        //string supplierid = db.Users.Where(x => x.Id == i.SupplierID).Select(x => x.Email).FirstOrDefault();
+                                        string supplierid = db.Users.Where(x => x.Id == i.SupplierID).Select(x => (x.FirstName + " " + x.LastName)).FirstOrDefault();
+                                        <tr role="row" class="odd">
+                                            <td>
+                                                @i.ORAPoNumber
+                                            </td>
+                                            <td>
+                                                @i.MSD_PO
+                                            </td>
+                                            <td>
+                                                @i.CreatedDate
+                                            </td>
+                                            @*<td>@i.Theme</td>*@
+                                            <td>@supplierid</td>
+                                            <td>@i.NeedByDate</td>
+                                            <td>@i.Calloff</td>
+                                            <td>
+                                                <a href="/Order/Download/@i.ID" target="_blank">
+                                                    <img src="~/Images/pdfIcon.png" height="30" width="30" />
+                                                </a>
+                                            </td>
+                                            <td>@i.Location</td>
+                                            <td><span class="label label-sm label-success">@i.Status  </span></td>
+                                            <td><a href="@Url.Action("RequitionerOrder", "Order", new { id = @i.ID })" class="btn default btn-xs green-stripe">Edit </a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            Closed PO
+                        </div>
+                    </div>
+
+                    <div class="portlet-body">
+
+                        <div id="sample_editable_2_wrapper" class="dataTables_wrapper no-footer">
+
+                            <div class="table-scrollable">
+                            </div>
+                            <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									ORAPO No.
+								: activate to sort column ascending"
+                                            style="width: 161px;">
+                                            ORAPO No.
+                                        </th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+									  MSDPO No.
+								: activate to sort column ascending"
+                                            style="width: 161px;">
+                                            MSDPO No.
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Created Date
+								: activate to sort column ascending"
+                                            style="width: 205px;">
+                                            Created Date
+                                        </th>
+                                        @*<th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Theme
+								: activate to sort column ascending"
+                                            style="width: 109px;">
+                                            Theme
+                                        </th>*@
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									  Supplier
+								: activate to sort column ascending"
+                                            style="width: 140px;">
+                                            Supplier
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									   Expected date
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Expected date
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									Call Off Status
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Call Off Status
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Pdf
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Pdf
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 Location
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Location
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									  Status
+								: activate to sort column ascending"
+                                            style="width: 76px;">
+                                            Status
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+									 View
+								: activate to sort column ascending"
+                                            style="width: 112px;">
+                                            View
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var j in sendlist1)
+                                    {
+                                        //string supplierid = db.Users.Where(x => x.Id == j.SupplierID).Select(x => x.Email).FirstOrDefault();
+                                        string supplierid = db.Users.Where(x => x.Id == j.SupplierID).Select(x => (x.FirstName + " " + x.LastName)).FirstOrDefault();
+                                        
+                                        <tr role="row" class="odd">
+                                            <td>
+                                                @j.ORAPoNumber
+                                            </td>
+                                            <td>
+                                                @j.MSD_PO
+                                            </td>
+                                            <td>
+                                                @j.CreatedDate
+                                            </td>
+                                            <td>
+                                                <a href="/Order/Download/@j.ID" target="_blank">
+                                                    <img src="~/Images/pdfIcon.png" height="30" width="30" />
+                                                </a>
+                                            </td>
+                                            @*<td>@j.Theme</td>*@
+                                            <td>@supplierid</td>
+                                            <td>@j.NeedByDate</td>
+                                            <td>@j.Calloff</td>
+                                            <td>@j.Location</td>
+                                            @if (j.Close == true)
+                                            {
+                                                <td><span class="label label-sm label-success">Close  </span></td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>

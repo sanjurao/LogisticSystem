@@ -1,0 +1,194 @@
+﻿@model IEnumerable<Logistic.Base.Entity.PM_Order>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "PurchasingOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Logistic.Base.DataContext.LogisticsConnection db = new Logistic.Base.DataContext.LogisticsConnection();
+    string date = System.DateTime.Now.ToString("MM/dd/yyyy");
+    var item = db.PM_Order.Where(x => x.CreatedDate == date && x.IsActive == true && x.CheckStatus == false).ToList();
+    var items1 = db.PM_Order.ToList();
+    var sendlist = db.PM_Order.Where(x => x.Close == false).ToList();
+    var usertype = db.Users.Where(x => x.Email == User.Identity.Name).Select(x => x.UserType).FirstOrDefault();
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            <h3 class="page-title">
+                Purchase <small>Purchase listing</small>
+            </h3>
+
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="actions">
+                            <a href="../../Order/ViewPO" class="btn green">
+                                <span class="hidden-480">View PO List</span>
+                            </a>
+                        </div>
+                        <div class="caption">
+                            <i class="fa fa-edit"></i>Purchase Order View
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                            <div class="table-scrollable">
+                            </div>
+                            @if (usertype == "Supplier" || usertype == "Consolidator" || usertype == "Originator" || usertype == "EndUser" || usertype == "Requisitioner")
+                            {
+                                int id = Convert.ToInt32(User.Identity.GetUserId());
+                                var Order = db.PM_Order.Where(x => x.SupplierID == id || x.Consolidator == id || x.OrgUID == id || x.EndUserId == id || x.ReqUID == id).ToList();
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                ORAPO No.
+                                            </th>
+                                            <th>
+                                                MSDPO No.
+                                            </th>
+                                            <th> Date Created</th>
+                                            <th>
+                                                Theme
+                                            </th>
+                                            <th>Supplier</th>
+                                            <th> Expected Date</th>
+                                            <th>
+                                                Calloff
+                                            </th>
+                                            <th>Pdf</th>
+                                            <th>Status</th>
+                                            <th>Location</th>
+                                            <th>Report View</th>
+                                            <th>TimeLine</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var j in Order)
+                                        {
+                                            string supplierid = db.Users.Where(x => x.Id == j.SupplierID).Select(x => x.Email).FirstOrDefault();
+                                            <tr>
+                                                <td>
+                                                    @j.ORAPoNumber
+                                                </td>
+                                                <td>
+                                                    @j.MSD_PO
+                                                </td>
+                                                <td>
+                                                    @j.CreatedDate
+                                                </td>
+                                                <td>
+                                                    @j.Theme
+                                                </td>
+                                                <td>@supplierid</td>
+                                                <td>@j.NeedByDate</td>
+                                                <td class="center">
+                                                    @j.Calloff
+                                                </td>                                                
+                                                <td>
+                                                    <a href="/Order/Download/@j.ID" target="_blank">
+                                                        <img src="~/Images/pdfIcon.png" height="30" width="30" />
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-sm label-success">@j.Status</span>
+
+                                                </td>
+                                                <td>@j.Location</td>
+                                                <td>
+                                                    <a id="" href="@Url.Action("PurchaseView", "Order", new { id = j.ID }) " class="btn btn-circle green-haze btn-sm">View </a>
+
+                                                </td>
+                                                <td>
+                                                    <a id="" href="@Url.Action("TimeLine", "TimeLine", new { id = j.ID,MSD_PO=j.MSD_PO }) " class="btn btn-circle green-haze btn-sm">TimeLine </a>
+                                                </td>
+                                                @*  @if (usertype == "Consolidator")
+                                                    {
+                                                        <td>
+                                                            @Html.ActionLink("Supply", "OrderSupply", new { id = j.ID }, new { @class = "btn btn-circle green-haze btn-sm" })
+                                                        </td>
+                                                    }*@
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                ORAPO No.
+                                            </th>
+                                            <th>
+                                                MSDPO No.
+                                            </th>
+                                            <th> Date Created</th>
+                                            <th>
+                                                Theme
+                                            </th>
+                                            <th>Supplier</th>
+                                            <th> Expected Date</th>
+                                            <th>
+                                                Calloff
+                                            </th>
+                                            <th>Pdf</th>
+                                            <th>Status</th>
+                                            <th>Location</th>
+                                            <th>Report View</th>
+                                            <th>TimeLine</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var j in sendlist)
+                                        {
+                                            string supplierid = db.Users.Where(x => x.Id == j.SupplierID).Select(x => x.Email).FirstOrDefault();
+                                            <tr>
+                                                <td>
+                                                    @j.ORAPoNumber
+                                                </td>
+                                                <td>
+                                                    @j.MSD_PO
+                                                </td>
+                                                <td>
+                                                    @j.CreatedDate
+                                                </td>
+                                                <td>
+                                                    @j.Theme
+                                                </td>
+                                                <td>@supplierid</td>
+                                                <td>@j.NeedByDate</td>
+                                                <td class="center">
+                                                    @j.Calloff
+                                                </td>                                              
+                                                <td>
+                                                    <a href="/Order/Download/@j.ID" target="_blank">
+                                                        <img src="~/Images/pdfIcon.png" height="30" width="30" />
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-sm label-success">@j.Status</span>
+
+                                                </td>
+                                                <td>@j.Location</td>
+                                                <td>
+                                                    <a id="" href="@Url.Action("PurchaseView", "Order", new { id = j.ID }) " class="btn btn-circle green-haze btn-sm">View </a>
+                                                </td>
+                                                <td>
+                                                    <a id="" href="@Url.Action("TimeLine", "TimeLine", new { id = j.ID,MSD_PO=j.MSD_PO }) " class="btn btn-circle green-haze btn-sm">TimeLine </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

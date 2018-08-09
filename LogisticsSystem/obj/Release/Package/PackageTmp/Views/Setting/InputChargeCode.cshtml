@@ -1,0 +1,107 @@
+﻿@model Logistic.Base.Entity.PM_budgettable
+@using Logistic.Base.DataContext
+@{
+    ViewBag.Title = "InputChargeCode";
+    Layout = "~/Views/Shared/Blank.cshtml";
+    LogisticsConnection db = new LogisticsConnection();
+}
+<script src="~/js/jquery-1.11.3.min.js"></script>
+
+<div id="myModal">
+    <div class="modal-header">
+        <h3 id="myModalLabel">ChargeCode</h3>
+    </div>
+    <div class="modal-body">
+       
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div>
+                    <label>ChargeCode Name</label>
+                    @Html.TextBoxFor(m => m.Chargecodename, new { @class = "form-control", id = "Chargecodename" })
+                </div>
+                <div>
+                    <label>Discription</label>
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id = "Description" })
+                </div>
+                <div>
+                    <label>Email</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "Email" })
+                </div>
+                <div>
+                    <label>Approval</label>
+                    @if (ViewBag.Originator != null)
+                    {
+                        @Html.DropDownListFor(m => m.Approval, ViewBag.Originator as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", id = "Originator" })
+                                               
+                    }
+                </div>
+                <div>
+                    <label>Phone Number</label>
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", id = "Phone" })
+                </div>
+
+            </div>
+                  
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" id="btnSubmit" />
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#btnSubmit').click(function (e) {
+            validateForm(e);
+        });
+
+        function validateForm(e) {
+            var Chargecodename = $('#Chargecodename').val();
+            var Description = $('#Description').val();
+            var Email = $('#Email').val();
+            var Approval = $('#Approval').val();
+            var Phone = $('#Phone').val();
+
+            var inputVal = new Array(Chargecodename, Description, Email, Approval, Phone);
+
+            var inputMessage = new Array("Chargecode name", "Description", "Email", "Approval", "Phone");
+
+            $('.error').hide();
+
+            if (inputVal[0] == "") {
+                e.preventDefault()
+                $('#Chargecodename').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[0] + '</span>');
+                return false;
+            }
+            if (inputVal[1] == "") {
+                e.preventDefault()
+                $('#Description').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[1] + '</span>');
+                return false;
+            }
+            if (inputVal[2] == "") {
+                e.preventDefault()
+                $('#Email').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[2] + '</span>');
+                return false;
+            }
+
+            if (inputVal[3] == "") {
+                e.preventDefault()
+                $('#Approval').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[3] + '</span>');
+                return false;
+            }
+
+            if (inputVal[4] == "") {
+                e.preventDefault()
+                $('#Phone').after('<span style="color:red" class="error"> Please enter your ' + inputMessage[4] + '</span>');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+    });
+</script>
+
+

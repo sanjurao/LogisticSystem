@@ -1,0 +1,174 @@
+﻿@using Logistic.Base.Enums
+
+@model Logistic.Base.Entity.PM_Order
+@{
+    ViewBag.Title = "ConsolidaterPurchaseOrderEdit";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+    <div class="page-content-wrapper" style="min-height: 706px; margin-top: 60px;">
+        <div class="page-content">
+            @Html.ValidationSummary(true)
+            @using (Html.BeginForm("SupplierView", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {                     
+         
+                <div class="page-content">
+                    <h3 class="page-title"><b>Orders </b>
+                    </h3>
+                    <div>
+                        <label>PO No.</label>
+                        @Html.TextBoxFor(m => m.ORAPoNumber, new { @class = "form-control", placeholder = "Enter PO No", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(m => m.ORAPoNumber)
+                    </div>
+                    <div>
+                        <label>Requisitioner:</label>
+                        @if (ViewBag.requser != null)
+                        {
+                            @Html.DropDownListFor(m => m.ReqUID, ViewBag.requser as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(m => m.ReqUID)
+                        }
+                    </div>
+
+                    <div>
+                        <label>Originater/End User:</label>
+                        @if (ViewBag.EndUser != null)
+                        {
+                            @Html.DropDownListFor(m => m.OrgUID, ViewBag.EndUser as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(m => m.OrgUID)
+                        }
+                        else
+                        {
+                            @Html.DropDownList("myList")
+                        }
+                    </div>
+
+                    <div>
+                        <label>Consolidater:</label>
+                        @if (ViewBag.consol != null)
+                        {
+                            @Html.DropDownListFor(m => m.Consolidator, ViewBag.consol as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(m => m.Consolidator)
+                        }
+
+
+                    </div>
+                    <div>
+                        <label>Supplier:</label>
+                        @if (ViewBag.supplier != null)
+                        {
+                            @Html.DropDownListFor(m => m.SupplierID, ViewBag.supplier as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(m => m.SupplierID)
+                        }
+                    </div>
+                    <div>
+                        <label>Discription:</label>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Product Discription", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(m => m.Description)
+                    </div>
+                    <div>
+                        M.O.T:
+                     @Html.TextBoxFor(m => m.MOT, new { @class = "form-control", placeholder = "M.O.T", @readonly = "readonly" })
+                    </div>
+
+                    <div>
+                        <label>Category:</label>
+                        @if (ViewBag.Category != null)
+                        {
+                            @Html.DropDownListFor(m => m.CategoryID, ViewBag.Category as IEnumerable<SelectListItem>, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(m => m.CategoryID)
+                        }
+                    </div>
+                    <div>
+                        <label>Theam:</label>
+                        @Html.TextBoxFor(m => m.Theme, new { @class = "form-control", placeholder = "Theam", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(m => m.Theme)
+                    </div>
+                    <div>
+                        <label>K.P.I:</label>
+                        @Html.TextBoxFor(m => m.KPI, new { @class = "form-control", placeholder = "Enter K.P.I", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(m => m.KPI)
+                    </div>
+                    @* <div>
+                        K.P.I:
+                       @Html.TextBoxFor(m => m.KPI, new { @class = "form-control",placeholder="Enter PO No"  })
+                    </div>*@
+                    <div>
+                        <label>NeededBy:</label>
+                        @Html.TextBoxFor(m => m.NeedByDate, new { @class = "form-control form-control-inline input-medium date-picker", size = "100px ", placeholder = "Select Date Required", @readonly = "readonly" })
+                    </div>
+                    <div>
+                        <label>Charge Code:</label>
+                        @Html.TextBoxFor(m => m.Chargecode, new { @class = "form-control", placeholder = "Charg Code", @readonly = "readonly" })
+                    </div>
+                    <div>
+                        <label>Status:</label>
+                        @Html.DropDownListFor(m => m.Status, (from Status e in Enum.GetValues(typeof(Status)) select new SelectListItem { Value = e.ToString(), Text = e.ToString() }), "--Select--", new { @class = "form-control" })<br />
+                    </div>
+
+                    <table style="border: none">
+                        <tr>
+                            <td style="width: 10%;">&nbsp;</td>
+                            <td style="width: 20%;" align="right"><b>Call-Off: </b>@Html.CheckBoxFor(m => m.Calloff)
+                                @Html.LabelFor(m => m.Calloff)
+                            </td>
+                            <td style="width: 5%;">&nbsp;</td>
+                            <td style="width: 30%;" align="center"><b>MSDPo No:</b>  @Html.TextBoxFor(m => m.MSD_PO, new { @readonly = "readonly" })</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td align="right"><b>Call-Local:</b>  @Html.CheckBoxFor(m => m.Local)
+                                @Html.LabelFor(m => m.Local)</td>
+                            <td>&nbsp;</td>
+                            <td align="center"><b>LeadTime:</b> @Html.TextBoxFor(m => m.LeadTime, new { @readonly = "readonly" })</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td align="center"><b>DueDate:</b> @Html.TextBoxFor(m => m.DueDate, new { type = "Date", @readonly = "readonly" }) </td>
+                        </tr>
+                    </table>
+                    <table class="table table-striped table-bordered table-hover" style="border: none">
+
+                        <div>
+                            <thead>
+                                <div><b>ID:</b>@Html.TextBox("Id", null, new { @class = "form-control", @readonly = "readonly" })</div>
+                                <div><b>OrderDate:</b>@Html.TextBox("CreatedDate", null, new { @class = "form-control", @readonly = "readonly" })</div>
+
+                                <div><b>OrderNo:</b>@Html.TextBox("PoNumber", null, new { @class = "form-control", @readonly = "readonly" })</div>
+                            </thead>
+
+                        </div>
+                    </table>
+
+                    <br />
+                    <div align="right">
+                        <input type="submit" class="btn green" value="Submit" />
+                    </div>
+
+
+                </div>
+            
+            }
+
+
+
+            }
+        </div>
+    </div>
+</body>
+
+
